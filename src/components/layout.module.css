@@ -4,22 +4,30 @@
     max-width: 600px;
 }
 
-.job{
+.job {
     padding: 20px;
     background: #0ff;
+    background-color: yellow;
 }
 
-h1,h3{
+h1, h3 {
     color: #222222;
 }
 
-a{
+a {
     color: grey;
     text-decoration: none;
-    border-bottom: 1px solid red;
+    border-bottom: 0 solid red;
 }
-a:hover{
-    color: grey;
+
+a:hover {
+    color: #222222;
     text-decoration: none;
-    border-bottom: 1px solid red;
+    border-bottom: 0 solid red;
+}
+
+.Link {
+    color: pink;
+    text-decoration: none;
+    border-bottom: 1px solid pink;
 }

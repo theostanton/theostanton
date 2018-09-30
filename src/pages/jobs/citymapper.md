@@ -4,8 +4,6 @@ subtitle: "2017 - 2018"
 description: "Software Engineer" 
 ---
 
-October 2016 - March 2018
-
 Citymapper is home to some of Londons greatest software engineers. Working with such a great team I was able to get a great understanding of the challenges of coordinating larger scale software development, as well as pick up a gret deal of varied knowledge along the way. 
 
 I led the client side development on the standalone driver apps for Smart Ride and SmartBus, as well as working on the Citymapper consumer app. 

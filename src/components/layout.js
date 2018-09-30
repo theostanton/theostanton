@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import containerStyles from './layout.module.css'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql,Link } from 'gatsby'
 
 const Layout = ({ children }) => (
   <div className={containerStyles.layout}>
@@ -28,7 +28,7 @@ const Layout = ({ children }) => (
             <html lang="en"/>
           </Helmet>
           <>
-            <h1>{data.site.siteMetadata.title}</h1>
+            <h1><Link to={"/"}>{data.site.siteMetadata.title}</Link></h1>
             {children}
           </>
         </>

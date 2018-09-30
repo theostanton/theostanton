@@ -3,6 +3,7 @@ title: "Dojo"
 subtitle: "2017 - 2018"
 description: "Lead Android Developer" 
 ---
+
 Since day 1 I have been the sole Android developer at Dojo. It can be found here. Boasting a rating of 4.5, top five best apps of 2015 according to Google Play Store and featured countless times. It uses Androids latest technologies to remain smooth and sleak. Feature parity between iOS and Android was maintained whilst implementing some Android specific quirks to keep it feeling like an Android app. 
 
 **Dojo** - Dojo is a lifestyle app for helping millenials find stuff do to in their cities. Currently based in London and Paris it has 750k downloads on Android and iOS. 
