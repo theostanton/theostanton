@@ -1,6 +1,5 @@
 .job {
-    display: flex;
-    align-items: center;
     background: blue;
     margin: 50px;
+    padding: 50px;
 }
