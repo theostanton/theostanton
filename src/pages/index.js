@@ -1,15 +1,63 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
+import { Link, graphql } from 'gatsby'
+import { css } from 'react-emotion'
+import styles from './index.modules.css'
 import Layout from '../components/layout'
 
-const IndexPage = () => (
+console.log(styles)
+
+const Job = props => (
+  <div className={styles.job} key={props.node.id}>
+    <Link
+      to={props.node.fields.slug}
+      className={css`
+                text-decoration: none;
+                color: inherit;
+              `
+      }
+    >
+      <h3>
+        {props.node.frontmatter.title}{' '}
+        <span
+          className={css`
+                  color: #bbb;
+                `}
+        >
+                — {props.node.frontmatter.subtitle}
+              </span>
+      </h3>
+      <p>{props.node.frontmatter.description}</p>
+    </Link>
+  </div>
+)
+
+
+export default ({ data }) => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    {data.allMarkdownRemark.edges.map(({ node }) => (
+      <Job node={node}/>
+    ))}
   </Layout>
 )
 
-export default IndexPage
+export const query = graphql`
+  query {
+    allMarkdownRemark{
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            subtitle
+            description
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`
