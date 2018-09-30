@@ -2,6 +2,7 @@
 title: "Dojo"
 subtitle: "2017 - 2018"
 description: "Head of Product" 
+order: 2
 ---
 
 After starting off as an Android developer I was promoted to lead the development team. Managing the iOS, Android, Web, Backend, Analytics and Internal Website development. My priority was to introduce a structured work methodology into the team, so as the team could double in size, increase the technological complexity, the work efficiency and be brought into its next generation. 

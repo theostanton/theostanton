@@ -29,6 +29,7 @@ const Layout = ({ children }) => (
           </Helmet>
           <>
             <h1><Link to={"/"}>{data.site.siteMetadata.title}</Link></h1>
+            <hr/>
             {children}
           </>
         </>

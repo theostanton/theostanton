@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 
 
 const Job = props => (
-  <div className="job" key={props.node.id}>
+  <div key={props.node.id}>
     <Link to={props.node.fields.slug}>
       <h3>{props.node.frontmatter.title}{' '} <span>— {props.node.frontmatter.subtitle}</span></h3>
       <p>{props.node.frontmatter.description}</p>
@@ -16,7 +16,6 @@ const Job = props => (
 
 export default ({ data }) => (
   <Layout>
-    <br/>
     {data.allMarkdownRemark.edges.map(({ node }) => (
       <Job node={node}/>
     ))}
@@ -25,7 +24,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    allMarkdownRemark{
+    allMarkdownRemark(sort: { fields: [frontmatter___order], order: DESC }){
       totalCount
       edges {
         node {
@@ -34,6 +33,7 @@ export const query = graphql`
             title
             subtitle
             description
+            order
           }
           fields {
             slug
