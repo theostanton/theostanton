@@ -14,19 +14,6 @@ const Job = props => (
 )
 
 
-
-const Job = props => (
-  <div className={styles.user} key={props.node.id}>
-    <img src={props.avatar} className={styles.avatar} alt="" />
-    <div className={styles.description}>
-      <h2 className={styles.username}>{props.username}</h2>
-      <p className={styles.excerpt}>{props.excerpt}</p>
-    </div>
-  </div>
-)
-
-
-
 export default ({ data }) => (
   <Layout>
     <br/>
