@@ -4,24 +4,15 @@
     max-width: 600px;
 }
 
-h1, h3 {
+h1, h3, a {
     color: #222222;
 }
 
 a {
     color: grey;
-    text-decoration: none;
-    border-bottom: 0 solid red;
 }
 
 a:hover {
     color: #222222;
     text-decoration: none;
-    border-bottom: 0 solid red;
-}
-
-.Link {
-    color: pink;
-    text-decoration: none;
-    border-bottom: 1px solid pink;
 }
