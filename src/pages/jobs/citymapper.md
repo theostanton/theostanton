@@ -1,6 +1,6 @@
 ---
 title: "Citymapper"
-subtitle: "2017 - 2018"
+subtitle: "Oct 2016 - Mar 2018"
 description: "Software Engineer" 
 order: 3
 ---

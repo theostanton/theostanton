@@ -6,11 +6,11 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <div>
-        <h2>{post.frontmatter.title}</h2>
-        <h3>{post.frontmatter.description}</h3>
-        <p><i>{post.frontmatter.subtitle}</i></p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }}/>
+      <div style={{ padding: `20px` }}>
+        <h3>{post.frontmatter.title}</h3>
+        <h5>{post.frontmatter.subtitle}</h5>
+        {post.frontmatter.description}
+        <div style={{ padding: `30px 0 0 0` }} dangerouslySetInnerHTML={{ __html: post.html }}/>
       </div>
     </Layout>
   )

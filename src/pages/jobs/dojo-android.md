@@ -1,6 +1,6 @@
 ---
 title: "Dojo"
-subtitle: "2017 - 2018"
+subtitle: "Jan 2015 - Mar 2016"
 description: "Lead Android Developer" 
 order: 1
 ---

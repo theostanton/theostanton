@@ -28,7 +28,7 @@ const Layout = ({ children }) => (
             <html lang="en"/>
           </Helmet>
           <>
-            <h1><Link to={"/"}>{data.site.siteMetadata.title}</Link></h1>
+            <h1 style={{ padding: `0 20px`}}><Link to={"/"}>{data.site.siteMetadata.title}</Link></h1>
             <hr/>
             {children}
           </>

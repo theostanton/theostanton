@@ -1,6 +1,6 @@
 ---
 title: "Floom"
-subtitle: "2018 - present"
+subtitle: "Sept 2018 - present"
 description: "CTO" 
 order: 4
 ---

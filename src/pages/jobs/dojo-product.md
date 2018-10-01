@@ -1,6 +1,6 @@
 ---
 title: "Dojo"
-subtitle: "2017 - 2018"
+subtitle: "Mar 2016 - Sep 2016"
 description: "Head of Product" 
 order: 2
 ---

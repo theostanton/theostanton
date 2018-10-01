@@ -1,0 +1,23 @@
+.job {
+    padding: 20px;
+}
+
+.subtitle {
+    position: relative;
+    right: 0;
+    top: 0;
+    background-color: #00ff00;
+}
+
+.description {
+    background-color: #0000ff;
+    flex: 1
+}
+
+.title {
+    background-color: #ff0000;
+}
+
+.job:hover {
+    background-color: #f5f5f5;
+}
