@@ -11,8 +11,3 @@ h1, h3, a {
 a {
     color: grey;
 }
-
-a:hover {
-    color: #222222;
-    text-decoration: none;
-}

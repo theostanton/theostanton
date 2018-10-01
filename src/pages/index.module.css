@@ -2,6 +2,10 @@
     padding: 20px;
 }
 
+.job:hover{
+    background: #e7e7e7;
+}
+
 .layout {
     margin: 3rem auto;
     padding: 20px;
@@ -16,7 +20,7 @@ a {
     color: grey;
 }
 
-a:hover {
-    color: #222222;
-    text-decoration: none;
-}
+/*a:hover {*/
+    /*color: #222222;*/
+    /*text-decoration: none;*/
+/*}*/
