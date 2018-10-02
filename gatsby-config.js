@@ -3,7 +3,6 @@ module.exports = {
     title: 'Theo Stanton',
   },
   plugins: [
-    'gatsby-plugin-postcss-sass',
     `gatsby-plugin-favicon`,
     'gatsby-plugin-react-helmet',
     {
