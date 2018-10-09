@@ -27,12 +27,12 @@ const Layout = ({ children }) => (
           >
             <html lang="en"/>
           </Helmet>
-          <>
+          <div>
             <h1><Link style={{ color: '#000000', padding: `0 20px` }} to={'/'}>{data.site.siteMetadata.title}</Link>
             </h1>
             <hr/>
             {children}
-          </>
+          </div>
         </>
       )}
     />
