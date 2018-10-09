@@ -12,12 +12,24 @@
     max-width: 600px;
 }
 
+.description{
+    color:#ffff00;
+    text-decoration: none;
+}
+
 h1, h3, a {
-    color: #00ff00;
+    /*color: #00ff00;*/
+    text-decoration: none;
 }
 
 a {
+    /*color: #ff0000;*/
+    text-decoration: none;
+}
+
+.text{
     color: #ff0000;
+    text-decoration: none;
 }
 
 /*a:hover {*/
