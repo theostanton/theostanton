@@ -18,21 +18,10 @@
 }
 
 h1, h3, a {
-    /*color: #00ff00;*/
-    text-decoration: none;
-}
-
-a {
-    /*color: #ff0000;*/
     text-decoration: none;
 }
 
 .text{
-    color: #000000;
+    color: #333333;
     text-decoration: none;
 }
-
-/*a:hover {*/
-    /*color: #222222;*/
-    /*text-decoration: none;*/
-/*}*/

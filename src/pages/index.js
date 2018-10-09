@@ -7,7 +7,7 @@ const Job = props => (
   <Link to={props.node.fields.slug} key={props.node.id}>
     <div className={style.job}>
       <h3 className={style.text}>{props.node.frontmatter.title}</h3>
-      <h5 className={style.text}>{props.node.frontmatter.subtitle}</h5>
+      <h5 className={style.text} style={{ "text-decoration": "none" }}>{props.node.frontmatter.subtitle}</h5>
       <p className={style.description}>{props.node.frontmatter.description}</p>
     </div>
   </Link>
