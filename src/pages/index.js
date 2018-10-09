@@ -3,8 +3,6 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import style from './index.module.css'
 
-console.log(style)
-
 const Job = props => (
   <Link to={props.node.fields.slug} key={props.node.id}>
     <div className={style.job}>
