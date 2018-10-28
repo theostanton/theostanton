@@ -4,10 +4,6 @@
     max-width: 600px;
 }
 
-h1, h3, a {
-    color: #ff00ff;
-}
-
 .job {
     padding: 20px;
 }
@@ -17,7 +13,7 @@ h1, h3, a {
 }
 
 .description {
-    color: #00ffff;
+    color: #444444;
 }
 
 .text {
