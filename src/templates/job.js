@@ -17,7 +17,7 @@ class JobComponent extends React.Component {
     const post = this.props.data.markdownRemark
     return (
       <Layout>
-        <div style={{ padding: `20px` }}>
+        <div style={{ padding: `20px 0` }}>
           <h3 className={style.text}> {post.frontmatter.title}</h3>
           <h5 className={style.text}>{post.frontmatter.subtitle}</h5>
           <p className={style.description}>{post.frontmatter.description}</p>
