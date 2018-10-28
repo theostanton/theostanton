@@ -3,6 +3,8 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import style from './style.module.css'
 import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
+
 
 const Job = props => (
   <Link to={props.node.fields.slug}
@@ -18,35 +20,63 @@ const Job = props => (
 
 const links = {
   'email': 'mailto:theostanton@gmail.com?Subject=Hello%20Theo',
-  'linkedin': 'https://www.linkedin.com/in/theostanton',
-  'github': 'https://www.github.com/theostanton',
+  'linkedin': 'https://linkedin.com/in/theostanton',
+  'github': 'https://github.com/theostanton',
   'instagram': 'https://instagram.com/theostanton',
 }
 
-
-export default ({ data }) => (
-  <Layout>
-    {console.log(data)}
-    <div style={{ paddingBottom: '10px' }}>
-
-      {Object.keys(links).map(name => {
-        const node = data.allFile.edges.find(({ node }) => {
-          return node.name === name
-        }).node
-        console.log('node=', node)
-        return (
-          <a key={node.id} href={links[name]} style={{ padding: '4px' }}>
-            <Img fixed={node.childImageSharp.fixed}/>
-          </a>)
-      })}
+class IndexComponent extends React.Component {
 
 
-    </div>
-    {data.allMarkdownRemark.edges.map(({ node }) => (
-      <Job node={node} key={node.id}/>
-    ))}
-  </Layout>
-)
+  componentDidMount() {
+    this.context.mixpanel.identify()
+    this.context.mixpanel.track('Home', {
+      environment: process.env.NODE_ENV,
+    })
+  }
+
+  render() {
+    const { data } = this.props
+    const mixpanel=this.context.mixpanel;
+    return (
+      <Layout>
+        <div style={{ paddingBottom: '10px' }}>
+
+          {Object.keys(links).map(name => {
+            const node = data.allFile.edges.find(({ node }) => {
+              return node.name === name
+            }).node
+
+            function onClick() {
+              mixpanel.track('Link', {
+                environment: process.env.NODE_ENV,
+                job: name,
+              })
+            }
+
+            return (
+              <a key={name} href={links[name]}
+                 onClick={onClick}
+                 style={{ padding: '4px' }}>
+                <Img fixed={node.childImageSharp.fixed}/>
+              </a>)
+          })}
+
+
+        </div>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <Job node={node} key={node.id}/>
+        ))}
+      </Layout>
+    )
+  }
+}
+
+IndexComponent.contextTypes = {
+  mixpanel: PropTypes.object.isRequired,
+}
+
+export default IndexComponent
 
 export const query = graphql`
   query {
