@@ -3,9 +3,7 @@ import Layout from '../components/layout'
 import style from '../pages/style.module.css'
 import PropTypes from 'prop-types'
 
-
 class JobComponent extends React.Component {
-
   componentDidMount() {
     const post = this.props.data.markdownRemark
     this.context.mixpanel.identify()
@@ -23,7 +21,10 @@ class JobComponent extends React.Component {
           <h3 className={style.text}> {post.frontmatter.title}</h3>
           <h5 className={style.text}>{post.frontmatter.subtitle}</h5>
           <p className={style.description}>{post.frontmatter.description}</p>
-          <div style={{ padding: `30px 0 0 0` }} dangerouslySetInnerHTML={{ __html: post.html }}/>
+          <div
+            style={{ padding: `30px 0 0 0` }}
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
         </div>
       </Layout>
     )
@@ -35,7 +36,6 @@ JobComponent.contextTypes = {
 }
 
 export default JobComponent
-
 
 export const query = graphql`
   query($slug: String!) {
