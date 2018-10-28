@@ -53,6 +53,7 @@ class IndexComponent extends React.Component {
                 key={name}
                 href={links[name]}
                 onClick={onClick}
+                target="_blank"
                 style={{ padding: '4px' }}
               >
                 <Img fixed={node.childImageSharp.fixed}/>
