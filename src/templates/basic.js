@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
+import style from '../pages/style.module.css'
 
 export default ({ data }) => {
   const post = data.markdownRemark
@@ -7,9 +8,9 @@ export default ({ data }) => {
   return (
     <Layout>
       <div style={{ padding: `20px` }}>
-        <h3 style={{ color: '#000000' }}> {post.frontmatter.title}</h3>
-        <h5 style={{ color: '#333333' }}>{post.frontmatter.subtitle}</h5>
-        {post.frontmatter.description}
+        <h3 className={style.text}> {post.frontmatter.title}</h3>
+        <h5 className={style.text}>{post.frontmatter.subtitle}</h5>
+        <p className={style.description}>{post.frontmatter.description}</p>
         <div style={{ padding: `30px 0 0 0` }} dangerouslySetInnerHTML={{ __html: post.html }}/>
       </div>
     </Layout>
