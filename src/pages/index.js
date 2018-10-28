@@ -16,7 +16,7 @@ const Job = props => (
 )
 
 const links = {
-  email: 'mailto:theostanton@gmail.com?Subject=Hello%20Theo',
+  email: 'mailto:theostanton@gmail.com?Subject=Hello%20Mr%20Theo',
   linkedin: 'https://linkedin.com/in/theostanton',
   github: 'https://github.com/theostanton',
   instagram: 'https://instagram.com/theostanton',
@@ -55,13 +55,13 @@ class IndexComponent extends React.Component {
                 onClick={onClick}
                 style={{ padding: '4px' }}
               >
-                <Img fixed={node.childImageSharp.fixed} />
+                <Img fixed={node.childImageSharp.fixed}/>
               </a>
             )
           })}
         </div>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <Job node={node} key={node.id} />
+          <Job node={node} key={node.id}/>
         ))}
       </Layout>
     )
