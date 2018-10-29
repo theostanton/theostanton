@@ -3,6 +3,7 @@ title: "Citymapper"
 subtitle: "Oct 2016 - Mar 2018"
 description: "Senior Software Engineer" 
 order: 3
+path: "citymapper"
 ---
 
 Citymapper is home to some of Londons greatest software engineers. Working with such a great team I was able to get a great understanding of the challenges of coordinating larger scale software development, as well as pick up a gret deal of varied knowledge along the way. 

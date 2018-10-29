@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 
 const Job = props => (
-  <Link to={props.node.fields.slug} style={{ textDecoration: 'none' }}>
+  <Link to={props.node.fields.path} style={{ textDecoration: 'none' }}>
     <div className={style.job}>
       <h3 className={style.text}>{props.node.frontmatter.title}</h3>
       <h5 className={style.text}>{props.node.frontmatter.subtitle}</h5>
@@ -44,7 +44,7 @@ class IndexComponent extends React.Component {
             function onClick() {
               mixpanel.track('Link', {
                 environment: process.env.NODE_ENV,
-                job: name,
+                label: name,
               })
             }
 
@@ -103,6 +103,7 @@ export const query = graphql`
           }
           fields {
             slug
+            path
           }
           excerpt
         }

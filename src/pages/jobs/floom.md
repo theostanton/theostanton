@@ -3,6 +3,7 @@ title: "Floom"
 subtitle: "Sept 2018 - present"
 description: "CTO" 
 order: 4
+path: "floom"
 ---
 
 [Floom](http://www.floom.com)

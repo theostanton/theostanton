@@ -3,6 +3,7 @@ title: "Dojo"
 subtitle: "Jan 2015 - Mar 2016"
 description: "Lead Android Developer" 
 order: 1
+path: "dojo-android"
 ---
 
 Since day 1 I have been the sole Android developer at Dojo. It can be found here. Boasting a rating of 4.5, top five best apps of 2015 according to Google Play Store and featured countless times. It uses Androids latest technologies to remain smooth and sleak. Feature parity between iOS and Android was maintained whilst implementing some Android specific quirks to keep it feeling like an Android app. 

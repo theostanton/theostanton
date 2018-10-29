@@ -23,6 +23,7 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               fields {
                 slug
+                path
               }
             }
           }
@@ -31,12 +32,13 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(result => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         createPage({
-          path: node.fields.slug,
+          path: node.fields.path,
           component: path.resolve(`./src/templates/job.js`),
           context: {
             // Data passed to context is available
             // in page queries as GraphQL variables.
             slug: node.fields.slug,
+            path: node.fields.path,
           },
         })
       })
