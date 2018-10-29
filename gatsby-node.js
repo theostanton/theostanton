@@ -33,6 +33,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `).then(result => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        console.log('node.frontmatter',node.frontmatter)
         createPage({
           path: node.frontmatter.path,
           component: path.resolve(`./src/templates/job.js`),
