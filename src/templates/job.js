@@ -9,7 +9,7 @@ class JobComponent extends React.Component {
     this.context.mixpanel.identify()
     this.context.mixpanel.track('Job', {
       environment: process.env.NODE_ENV,
-      job: post.fields.path,
+      job: post.frontmatter.path,
     })
   }
 
@@ -46,8 +46,6 @@ export const query = graphql`
         subtitle
         description
         order
-      }
-      fields {
         path
       }
     }

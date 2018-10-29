@@ -54,7 +54,7 @@ class IndexComponent extends React.Component {
                 href={links[name]}
                 onClick={onClick}
                 target="_blank"
-                style={{ padding: '4px' }}
+                style={{ padding: '6px 4px 4px 4px' }}
               >
                 <Img fixed={node.childImageSharp.fixed}/>
               </a>
@@ -100,10 +100,10 @@ export const query = graphql`
             subtitle
             description
             order
+            path
           }
           fields {
             slug
-            path
           }
           excerpt
         }
