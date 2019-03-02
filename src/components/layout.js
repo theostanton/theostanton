@@ -22,11 +22,11 @@ class LayoutComponent extends React.Component {
           `}
           render={data => (
             <div>
-              <Helmet
-                title={data.site.siteMetadata.title}
-                meta={[{ name: 'description', content: 'Theo Stanton' }]}
-              >
-                <html lang="en" />
+              <title>
+                <title>Theo Stanton</title>
+                <meta name="description" content="Theo Stanton"/>
+                <meta name="keywords" content="theo,stanton,theo stanton,cto"/>
+                <html lang="en"/>
               </Helmet>
               <div style={{ padding: `0 20px` }}>
                 <h1>
@@ -37,7 +37,7 @@ class LayoutComponent extends React.Component {
                     {data.site.siteMetadata.title}
                   </Link>
                 </h1>
-                <hr />
+                <hr/>
                 {children}
               </div>
             </div>
