@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 
 const Job = props => (
-  <Link to={props.node.frontmatterd.path} style={{ textDecoration: 'none' }}>
+  <Link to={props.node.frontmatter.path} style={{ textDecoration: 'none' }}>
     <div className={style.job}>
       <h3 className={style.text}>{props.node.frontmatter.title}</h3>
       <h5 className={style.text}>{props.node.frontmatter.subtitle}</h5>
