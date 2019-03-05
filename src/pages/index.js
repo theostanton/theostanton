@@ -16,7 +16,7 @@ const Job = props => (
 )
 
 const links = {
-  email: 'mailto:theostanton@gmail.com?Subject=Hello%20Mr%20Theo',
+  email: 'mailto:hello@theo.dev?Subject=Hello%20Mr%20Theo',
   linkedin: 'https://linkedin.com/in/theostanton',
   github: 'https://github.com/theostanton',
   instagram: 'https://instagram.com/theostanton',
