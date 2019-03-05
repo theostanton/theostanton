@@ -1,0 +1,5 @@
+
+# A basic redirect rule
+[[redirects]]
+  from = "https://theostanton/*"
+  to = "https://theo.dev/:splat"

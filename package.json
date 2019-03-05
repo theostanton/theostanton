@@ -16,6 +16,7 @@
     "gatsby-plugin-typography": "^2.2.0",
     "gatsby-source-filesystem": "^2.0.1",
     "gatsby-transformer-remark": "^2.1.4",
+    "gatsby-plugin-extract-schema": "^0.0.5",
     "gatsby-transformer-sharp": "^2.1.5",
     "prop-types": "latest",
     "react": "^16.5.1",
