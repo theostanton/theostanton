@@ -22,7 +22,7 @@ class LayoutComponent extends React.Component {
           `}
           render={data => (
             <div>
-              <title>
+              <Helmet>
                 <title>Theo Stanton</title>
                 <meta name="description" content="Theo Stanton"/>
                 <meta name="keywords" content="theo,stanton,theo stanton,cto"/>
