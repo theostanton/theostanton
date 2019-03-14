@@ -6,7 +6,7 @@ order: 4
 path: "floom"
 ---
 
-[Floom](http://www.floom.com)
+[Floom](http://www.floom.com) + [FloomX](http://www.floomx.com)
 
 Floom is a VC-backed start-up on a mission to become the first vertically integrated florist software company. We believe flowers are the most universally accepted and loved gift, but seasonality and environmental impact have been too-long ignored. Since launching in Feb'16 we’ve been voted one of the top UK 100 startups two years in a row, created long-lasting relationships with florists across all of the UK and New York, whilst taken orders from loyal customers in 114 different countries.
 
