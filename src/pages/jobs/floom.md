@@ -1,6 +1,6 @@
 ---
 title: "Floom"
-subtitle: "Sept 2018 - present"
+subtitle: "Sept 2018 - Dec 2020"
 description: "CTO" 
 order: 4
 path: "floom"
