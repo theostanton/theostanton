@@ -32,12 +32,6 @@ module.exports = {
         display: 'minimal-ui',
       },
     },
-    {
-      resolve: 'gatsby-plugin-mixpanel',
-      options: {
-        apiToken: 'd70501c7a5bb7e4a072e488f74157870',
-      },
-    },
     'gatsby-plugin-offline',
   ],
 }

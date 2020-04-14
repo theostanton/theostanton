@@ -23,16 +23,9 @@ const links = {
 }
 
 class IndexComponent extends React.Component {
-  componentDidMount() {
-    this.context.mixpanel.identify()
-    this.context.mixpanel.track('Home', {
-      environment: process.env.NODE_ENV,
-    })
-  }
 
   render() {
     const { data } = this.props
-    const mixpanel = this.context.mixpanel
     return (
       <Layout>
         <div style={{ paddingBottom: '10px' }}>
@@ -41,18 +34,10 @@ class IndexComponent extends React.Component {
               return node.name === name
             }).node
 
-            function onClick() {
-              mixpanel.track('Link', {
-                environment: process.env.NODE_ENV,
-                label: name,
-              })
-            }
-
             return (
               <a
                 key={name}
                 href={links[name]}
-                onClick={onClick}
                 target="_blank"
                 style={{ padding: '6px 4px 4px 4px' }}
               >
@@ -67,10 +52,6 @@ class IndexComponent extends React.Component {
       </Layout>
     )
   }
-}
-
-IndexComponent.contextTypes = {
-  mixpanel: PropTypes.object.isRequired,
 }
 
 export default IndexComponent

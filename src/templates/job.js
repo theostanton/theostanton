@@ -4,14 +4,6 @@ import style from '../pages/style.module.css'
 import PropTypes from 'prop-types'
 
 class JobComponent extends React.Component {
-  componentDidMount() {
-    const post = this.props.data.markdownRemark
-    this.context.mixpanel.identify()
-    this.context.mixpanel.track('Job', {
-      environment: process.env.NODE_ENV,
-      job: post.frontmatter.path,
-    })
-  }
 
   render() {
     const post = this.props.data.markdownRemark
@@ -29,10 +21,6 @@ class JobComponent extends React.Component {
       </Layout>
     )
   }
-}
-
-JobComponent.contextTypes = {
-  mixpanel: PropTypes.object.isRequired,
 }
 
 export default JobComponent
