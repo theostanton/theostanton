@@ -20,6 +20,7 @@ const links = {
   linkedin: 'https://linkedin.com/in/theostanton',
   github: 'https://github.com/theostanton',
   instagram: 'https://instagram.com/theostanton',
+  strava: 'https://www.strava.com/athletes/4142500',
 }
 
 class IndexComponent extends React.Component {
