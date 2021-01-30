@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_redirects" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatsby-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatsby-config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatsby-node.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatsby-ssr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql.config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphql.schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/netlify.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/dot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/container.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/email.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/github.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/instagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/linkedin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/strava.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/404.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/jobs/citymapper.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/jobs/dojo-android.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/jobs/dojo-product.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/jobs/floom.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/jobs/university.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/style.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/job.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/typography.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611990520183</updated>
-      <workItem from="1611990521433" duration="2026000" />
+      <workItem from="1611990521433" duration="2206000" />
     </task>
     <servers />
   </component>
