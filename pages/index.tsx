@@ -13,14 +13,33 @@ export const getStaticProps: GetStaticProps<Props> = async context => {
     props: {
       jobs: [
         {
-          title: "Some title",
-          description: "Some description",
-          period: "2019"
+          title: "Head of Engineering",
+          company: "Sport Heroes",
+          companyUrl: "https://sportheroes.com",
+          period: "October 2020 - Present"
         },
         {
-          title: "Some other title",
+          title: "CTO",
+          company: "Floom",
+          companyUrl: "https://floomx.com",
           description: "Some other description",
           period: "2020"
+        },
+        {
+          title: "Senior Software Engineer",
+          company: "Citymapper",
+          companyUrl: "https://citymapper.com",
+          period: "2018"
+        },
+        {
+          title: "Head of Product",
+          company: "Dojo",
+          period: "2017"
+        },
+        {
+          title: "Android Developer",
+          company: "Dojo",
+          period: "2016"
         }
       ]
     }
@@ -30,22 +49,29 @@ export const getStaticProps: GetStaticProps<Props> = async context => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: pink;
+  font-family: Arial, serif;
+  height: 100%;
+  color: #000000bb;
 `
 
-const Title = styled.h1`
-  flex: 0;
-  color: #ffffffbb;
-  font-style: italic;
+const Title = styled.div`
+  font-size: 196px;
+  margin: 32px;
+  padding: 0 8px;
+  color: beige;
+  //align-self: flex-start;
+  text-align: center;
+  background-color: #000000dd;
 `
 
 
 const Home: React.FC<Props> = ({ jobs }: Props) => {
+
   return (
     <Container>
       <Title>Theo Stanton</Title>
       {jobs.map((job, index) => {
-        return <JobComponent {...job} location={index % 2 == 0 ? "left" : "right"} />
+        return <JobComponent key={index} {...job} location={index % 2 == 0 ? "left" : "right"} />
       })}
     </Container>
   )

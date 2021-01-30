@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
       div#__next > div {
         height: 100%;
         margin: 0;
+        background-color: #f7f1e0;
       }
     `}</style>
     <Component {...pageProps} />
