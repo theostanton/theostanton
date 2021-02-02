@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactElement } from "react"
 import styled from "styled-components"
 
 export type Props = {
@@ -32,10 +32,8 @@ const Title = styled.div`
   flex: 0;
   font-size: 144px;
   padding: 8px 16px;
-  //border-style: solid;
-  //border-color: white;
-  //border-width: thick;
   background-color: #e97967;
+  white-space: nowrap;
 `
 
 const Description = styled.div`
@@ -43,24 +41,28 @@ const Description = styled.div`
 
 const CompanyContainer = styled.a`
   text-decoration: none;
-
-
-  &:hover {
-    background-color: #ab3339;
-  }
 `
 
-
-const Company = styled.h2`
-  color: #ab3339;
-  padding: 0;
+const CompanyButton = styled.h2`
+  color: #000000dd;
+  padding: 8px;
   margin: 0;
 
   &:hover {
+    background-color: #000000dd;
     color: beige;
   }
 `
+
+const CompanyText = styled.h2`
+  color: #000000dd;
+  padding: 8px;
+  margin: 0;
+  overflow: hidden;
+`
+
 const Period = styled.h3`
+  padding: 0 8px;
 `
 
 
@@ -72,19 +74,28 @@ const Details = styled.div<Props>`
   align-items: ${(props: Props) => props.location === "left" ? "flex-start" : "flex-end"};
 `
 
+function Company({ company, companyUrl }: Props): ReactElement {
+  if (companyUrl) {
+    const chevron = "›"
+    return <CompanyContainer href={companyUrl} target="_blank">
+      <CompanyButton>{company} {chevron}</CompanyButton>
+    </CompanyContainer>
+  } else {
+    return <CompanyText>{company}</CompanyText>
+  }
+}
+
 export default class JobComponent extends React.Component<Props> {
+
   render() {
 
 
-    const chevron = "›"
     return <Container {...this.props}>
       <TitleContainer {...this.props}>
         <Title>{this.props.title}</Title>
       </TitleContainer>
       <Details {...this.props}>
-        <CompanyContainer href={this.props.companyUrl} target="_blank">
-          <Company>{this.props.company} {chevron}</Company>
-        </CompanyContainer>
+        <Company {...this.props} />
         {this.props.description && <Description>{this.props.description}</Description>}
         <Period>{this.props.period}</Period>
       </Details>
