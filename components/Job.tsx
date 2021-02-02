@@ -77,7 +77,7 @@ const Details = styled.div<Props>`
 function Company({ company, companyUrl }: Props): ReactElement {
   if (companyUrl) {
     const chevron = "›"
-    return <CompanyContainer href={companyUrl} target="_blank">
+    return <CompanyContainer rel="noopener" href={companyUrl} target="_blank">
       <CompanyButton>{company} {chevron}</CompanyButton>
     </CompanyContainer>
   } else {

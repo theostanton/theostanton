@@ -22,6 +22,6 @@ const Container = styled.a`
 export default class SocialComponent extends React.Component<Props> {
 
   render() {
-    return <Container href={this.props.url}>{this.props.title}</Container>
+    return <Container rel="noopener" href={this.props.url}>{this.props.title}</Container>
   }
 }
