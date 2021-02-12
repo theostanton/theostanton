@@ -1,7 +1,7 @@
 import { AppProps } from "next/app"
-import Head from 'next/head'
+import Head from "next/head"
 import React from "react"
-
+import { theme } from "../styles/theme"
 
 export default function App({ Component, pageProps }: AppProps) {
   return <>
@@ -16,9 +16,10 @@ export default function App({ Component, pageProps }: AppProps) {
       div#__next > div {
         height: 100%;
         margin: 0;
-        background-color: #f7f1e0;
+        background-color:${theme.beige};
       }
     `}</style>
+
     <Component {...pageProps} />
   </>
 }

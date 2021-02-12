@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { theme } from "../styles/theme"
 
 export type Props = {
   title: string
@@ -9,13 +10,13 @@ export type Props = {
 const Container = styled.a`
   font-size: 4vw;
   text-decoration: none;
-  color: #000000bb;
+  color: ${theme.black};
   padding: 8px 16px;
   cursor: pointer;
 
   &:hover {
-    background-color: #000000dd;
-    color: beige;
+    background-color: ${theme.black};
+    color: ${theme.beige};
   }
 `
 

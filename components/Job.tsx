@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react"
 import styled from "styled-components"
+import { theme, Theme } from "../styles/theme"
 
 export type Props = {
   title: string
@@ -10,30 +11,36 @@ export type Props = {
   location: "left" | "right"
 }
 
+type LocationProps = Pick<Props, "location">
 
-const Container = styled.div<Props>`
+const Container = styled.div`
   display: flex;
-  padding: 32px 32px;
+  flex-wrap: wrap;
+  padding: 32px;
   cursor: default;
-  flex-direction: ${(props: Props) => props.location === "left" ? "row" : "row-reverse"};
+  flex-direction: column;
+  border-top-color: ${theme.black};
   border-top-style: solid;
-  margin-bottom: 8px;
   border-width: thick;
+
+  @media (max-width: 1080px) {
+    padding: 32px 16px ;
+  }
 `
 
 
-const TitleContainer = styled.div<Props>`
+const TitleContainer = styled.div<LocationProps>`
   display: flex;
-  flex: 0;
-  flex-direction: ${(props: Props) => props.location === "left" ? "row" : "row-reverse"};
+  height: fit-content;
+  flex-direction: ${(props: LocationProps) => props.location === "left" ? "row" : "row-reverse"};
 `
 
 const Title = styled.div`
-  flex: 0;
-  font-size: 144px;
+  font-size: 6vw;
   padding: 8px 16px;
+  margin-right: 16px;
+  color: ${theme.black};
   background-color: #e97967;
-  white-space: nowrap;
 `
 
 const Description = styled.div`
@@ -44,18 +51,18 @@ const CompanyContainer = styled.a`
 `
 
 const CompanyButton = styled.h2`
-  color: #000000dd;
+  color: ${theme.black};;
   padding: 8px;
   margin: 0;
 
   &:hover {
-    background-color: #000000dd;
-    color: beige;
+    background-color: ${theme.black};;
+    color: ${theme.beige};
   }
 `
 
 const CompanyText = styled.h2`
-  color: #000000dd;
+  color: ${theme.black};
   padding: 8px;
   margin: 0;
   overflow: hidden;
@@ -63,42 +70,40 @@ const CompanyText = styled.h2`
 
 const Period = styled.h3`
   padding: 0 8px;
+  color: ${theme.black};
 `
 
 
-const Details = styled.div<Props>`
+const Details = styled.div<LocationProps>`
   display: flex;
-  flex: 1;
-  padding: 0 16px;
+  padding: 16px 0 0;
   flex-direction: column;
-  align-items: ${(props: Props) => props.location === "left" ? "flex-start" : "flex-end"};
+  align-items: ${(props: LocationProps) => props.location === "left" ? "flex-start" : "flex-end"};
 `
 
-function Company({ company, companyUrl }: Props): ReactElement {
+function Company(props: Props): ReactElement {
+  const { company, companyUrl } = props
   if (companyUrl) {
     const chevron = "›"
     return <CompanyContainer rel="noopener" href={companyUrl} target="_blank">
-      <CompanyButton>{company} {chevron}</CompanyButton>
+      <CompanyButton {...props}>{company} {chevron}</CompanyButton>
     </CompanyContainer>
   } else {
-    return <CompanyText>{company}</CompanyText>
+    return <CompanyText {...props}>{company}</CompanyText>
   }
 }
 
-export default class JobComponent extends React.Component<Props> {
+const JobComponent: React.FC<Props> = ((props: Props) => {
+  return <Container>
+    <TitleContainer location={props.location}>
+      <Title>{props.title}</Title>
+    </TitleContainer>
+    <Details location={props.location}>
+      <Company {...props} />
+      {props.description && <Description>{props.description}</Description>}
+      <Period>{props.period}</Period>
+    </Details>
+  </Container>
+})
 
-  render() {
-
-
-    return <Container {...this.props}>
-      <TitleContainer {...this.props}>
-        <Title>{this.props.title}</Title>
-      </TitleContainer>
-      <Details {...this.props}>
-        <Company {...this.props} />
-        {this.props.description && <Description>{this.props.description}</Description>}
-        <Period>{this.props.period}</Period>
-      </Details>
-    </Container>
-  }
-}
+export default JobComponent
