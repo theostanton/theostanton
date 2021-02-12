@@ -27,6 +27,7 @@ class LayoutComponent extends React.Component {
                 <meta name="description" content="Theo Stanton"/>
                 <meta name="keywords" content="theo,stanton,theo stanton,cto"/>
                 <html lang="en"/>
+                <script async defer data-domain="theo.dev" src="https://plausible.io/js/plausible.js"/>
               </Helmet>
               <div style={{ padding: `0 20px` }}>
                 <h1>
