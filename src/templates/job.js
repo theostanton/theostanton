@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
 import style from '../pages/style.module.css'
-import PropTypes from 'prop-types'
 
 class JobComponent extends React.Component {
 
