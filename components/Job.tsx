@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react"
 import styled from "styled-components"
 import { theme, Theme } from "../styles/theme"
+import { usePlausible } from "next-plausible"
 
 export type Props = {
   title: string
@@ -83,9 +84,13 @@ const Details = styled.div<LocationProps>`
 
 function Company(props: Props): ReactElement {
   const { company, companyUrl } = props
+  const plausible = usePlausible()
   if (companyUrl) {
     const chevron = "›"
-    return <CompanyContainer rel="noopener" href={companyUrl} target="_blank">
+    return <CompanyContainer rel="noopener" href={companyUrl} target="_blank" onClick={() => {
+      plausible(company)
+    }
+    }>
       <CompanyButton {...props}>{company} {chevron}</CompanyButton>
     </CompanyContainer>
   } else {

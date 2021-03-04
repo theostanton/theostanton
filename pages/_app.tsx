@@ -7,6 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return <>
     <Head>
       <title>Theo Stanton</title>
+      <script async defer data-domain="staging.theo.dev" src="https://plausible.io/js/plausible.js"/>
     </Head>
     <style global jsx>{`
       html,
