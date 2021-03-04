@@ -7,7 +7,7 @@ export type Theme = {
 }
 
 export const theme: Theme = {
-  black: "#000000cc",
+  black: "#31302d",
   beige: "#f7f1e0",
   darkBeige: "#6a561b"
 }

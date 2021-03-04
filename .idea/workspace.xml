@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Tabs/Tab.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Tabs/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/home/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/home/props.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/home/styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/theme.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Job.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Job.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Social.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Social.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/props.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/props.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/theme.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/styles/theme.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +23,7 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1nmLrfxfIlh068OiULqzfV3u1v7" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">

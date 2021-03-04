@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps<Props> = async context => {
   const props: Props = {
     jobs: [
       {
-        title: "Head of Engineering",
+        title: "VP Engineering",
         company: "Sport Heroes",
         companyUrl: "https://sportheroes.com",
         period: "October 2020 - Present"
@@ -21,24 +21,23 @@ export const getStaticProps: GetStaticProps<Props> = async context => {
         title: "CTO",
         company: "Floom",
         companyUrl: "https://floomx.com",
-        description: "◍ Some other description",
-        period: "2020"
+        period: "Sept 2018 - Dec 2019"
       },
       {
         title: "Senior Software Engineer",
         company: "Citymapper",
         companyUrl: "https://citymapper.com",
-        period: "2018"
+        period: "Oct 2016 - Mar 2018"
       },
       {
         title: "Head of\nProduct",
         company: "Dojo",
-        period: "2017"
+        period: "Mar 2016 - Sep 2016"
       },
       {
         title: "Android\nDeveloper",
         company: "Dojo",
-        period: "2016"
+        period: "Jan 2015 - Feb 2016"
       }
     ],
     socials: [
@@ -60,7 +59,7 @@ export const getStaticProps: GetStaticProps<Props> = async context => {
       },
       {
         title: "Strava",
-        url: "https://www.strava.com/athletes/4142500"
+        url: "https://www.strava.com/athletes/theostanton"
       }
     ]
   }
