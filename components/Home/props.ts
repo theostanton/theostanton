@@ -2,14 +2,14 @@ import { GetStaticProps, GetStaticPropsResult } from "next"
 import { Props as JobProps } from "../../components/Job"
 import { Props as SocialProps } from "../../components/Social"
 
-export type Props = {
+export type props = {
   jobs: Omit<JobProps, "location" | "theme">[]
   socials: Omit<SocialProps, "theme">[]
 }
 
-export const getStaticProps: GetStaticProps<Props> = async context => {
+export const getStaticProps: GetStaticProps<props> = async context => {
 
-  const props: Props = {
+  const props: props = {
     jobs: [
       {
         title: "VP Engineering",
@@ -66,5 +66,5 @@ export const getStaticProps: GetStaticProps<Props> = async context => {
 
   return {
     props
-  } as GetStaticPropsResult<Props>
+  } as GetStaticPropsResult<props>
 }

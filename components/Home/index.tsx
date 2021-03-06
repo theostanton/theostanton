@@ -1,15 +1,15 @@
 import React from "react"
 
-import { Props } from "./props"
+import { props } from "./props"
 import { Container, Title, Content, Socials } from "./styles"
 import SocialComponent from "../../components/Social"
 import JobComponent from "../../components/Job"
 import PlausibleProvider from "next-plausible"
 
-const Home: React.FC<Props> = ((props: Props) => {
+const Home: React.FC<props> = ((props: props) => {
   const { jobs, socials } = props
   return (
-    <PlausibleProvider domain={'staging.theo.dev'}>
+    // <PlausibleProvider domain={'staging.theo.dev'} enabled={true} >
       <Container>
         <Title>Theo Stanton</Title>
         <Content>
@@ -23,7 +23,7 @@ const Home: React.FC<Props> = ((props: Props) => {
           })}
         </Content>
       </Container>
-    </PlausibleProvider>
+    // </PlausibleProvider>
   )
 })
 
