@@ -53,8 +53,8 @@ resource "aws_route53_record" "site_a_record" {
   name = var.domain_name
   type = "A"
   alias {
-    name = aws_s3_bucket.site.website_domain
-    zone_id = aws_s3_bucket.site.hosted_zone_id
+    name = aws_cloudfront_distribution.main.domain_name
+    zone_id = aws_cloudfront_distribution.main.hosted_zone_id
     evaluate_target_health = false
   }
 }
@@ -65,7 +65,7 @@ resource "aws_route53_record" "site_c_name" {
   type = "CNAME"
   ttl = "300"
   records = [
-    var.domain_name]
+    aws_cloudfront_distribution.main.domain_name]
 }
 
 //resource "aws_s3_bucket_object" "site" {

@@ -3,7 +3,7 @@ output "s3_url" {
 }
 
 output "cloudfront_url" {
-  value = aws_cloudfront_distribution.s3_distribution.domain_name
+  value = aws_cloudfront_distribution.main.domain_name
 }
 
 output "url" {
@@ -11,5 +11,5 @@ output "url" {
 }
 
 output "distribution_id" {
-  value = aws_cloudfront_distribution.s3_distribution.id
+  value = aws_cloudfront_distribution.main.id
 }

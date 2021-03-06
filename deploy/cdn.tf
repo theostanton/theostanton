@@ -1,13 +1,8 @@
-locals {
-  s3_origin_id = "primaryS3"
-}
-
-
-resource "aws_cloudfront_distribution" "s3_distribution" {
+resource "aws_cloudfront_distribution" "main" {
 
   origin {
     domain_name = aws_s3_bucket.site.website_endpoint
-    origin_id = local.s3_origin_id
+    origin_id = var.domain_name
 
     custom_origin_config {
       http_port = "80"
@@ -27,11 +22,12 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   default_cache_behavior {
     allowed_methods = [
       "GET",
-      "HEAD"]
+      "HEAD",
+      "OPTIONS"]
     cached_methods = [
       "GET",
       "HEAD"]
-    target_origin_id = local.s3_origin_id
+    target_origin_id = var.domain_name
 
     forwarded_values {
       query_string = false
@@ -41,7 +37,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
       }
     }
 
-    viewer_protocol_policy = "redirect-to-https"
+    viewer_protocol_policy = "allow-all"
     compress = true
     min_ttl = 0
     default_ttl = 3600
@@ -50,16 +46,14 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   aliases = [
     var.domain_name,
-    "www.${var.domain_name}"
+//    "www.${var.domain_name}"
   ]
 
   price_class = "PriceClass_100"
 
   restrictions {
     geo_restriction {
-      restriction_type = "blacklist"
-      locations = [
-        "US"]
+      restriction_type = "none"
     }
   }
 

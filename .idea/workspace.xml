@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy/cdn.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/cdn.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/outputs.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/site.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/site.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,15 +73,15 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile.build">
-    <configuration name="build" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/site/Makefile" target="build" workingDirectory="" arguments="">
+  <component name="RunManager" selected="Makefile.invalidate (1)">
+    <configuration name="apply" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/deploy/Makefile" target="apply" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="deploy" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="deploy" workingDirectory="" arguments="">
+    <configuration name="build" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/site/Makefile" target="build" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
@@ -103,11 +106,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile.build" />
+        <item itemvalue="Makefile.apply" />
         <item itemvalue="Makefile.invalidate (1)" />
+        <item itemvalue="Makefile.build" />
         <item itemvalue="Makefile.print" />
         <item itemvalue="Makefile.invalidate" />
-        <item itemvalue="Makefile.deploy" />
       </list>
     </recent_temporary>
   </component>
@@ -129,7 +132,7 @@
       <workItem from="1612863758875" duration="18000" />
       <workItem from="1613037610773" duration="1512000" />
       <workItem from="1613075040278" duration="1555000" />
-      <workItem from="1615013124029" duration="10523000" />
+      <workItem from="1615013124029" duration="12841000" />
     </task>
     <servers />
   </component>
