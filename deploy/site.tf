@@ -76,22 +76,13 @@ resource "aws_route53_record" "site_c_name" {
 //  etag = filemd5("dist/site/index.html")
 //}
 
-resource "aws_s3_bucket_object" "site_htmls" {
+resource "aws_s3_bucket_object" "site" {
   content_type = "text/html"
-  for_each = fileset("dist/site/", "*")
+  for_each = fileset("dist/site", "**")
   bucket = aws_s3_bucket.site.id
   key = each.value
   source = "dist/site/${each.value}"
   etag = filemd5("dist/site/${each.value}")
-}
-
-
-resource "aws_s3_bucket_object" "site_js" {
-  for_each = fileset("dist/site", "**")
-  bucket = aws_s3_bucket.site.id
-  key = each.value
-  source = "dist/site/_next/${each.value}"
-  etag = filemd5("dist/site/_next/${each.value}")
 }
 
 resource "aws_route53_record" "plausible" {
