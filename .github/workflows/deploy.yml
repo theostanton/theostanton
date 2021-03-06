@@ -17,6 +17,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install dependencies
+        run: yarn
+        working-directory: site
+
       - name: Build site
         run: make build
         working-directory: site
