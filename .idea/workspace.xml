@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="" />
+    <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/deploy/cdn.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/cdn.tf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,7 +129,7 @@
       <workItem from="1612863758875" duration="18000" />
       <workItem from="1613037610773" duration="1512000" />
       <workItem from="1613075040278" duration="1555000" />
-      <workItem from="1615013124029" duration="10378000" />
+      <workItem from="1615013124029" duration="10523000" />
     </task>
     <servers />
   </component>
