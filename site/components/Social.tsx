@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { theme } from "../styles/theme"
+import { usePlausible } from "next-plausible"
 
 export type Props = {
   title: string
@@ -23,6 +24,10 @@ const Container = styled.a`
 export default class SocialComponent extends React.Component<Props> {
 
   render() {
-    return <Container rel="noopener" href={this.props.url}>{this.props.title}</Container>
+    const plausible = usePlausible()
+    return <Container rel="noopener" href={this.props.url} onClick={() => {
+      plausible("View social", { props: { social: this.props.title } })
+    }
+    }>{this.props.title}</Container>
   }
 }

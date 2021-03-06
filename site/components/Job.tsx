@@ -22,7 +22,7 @@ const Container = styled.div`
   flex-direction: column;
   border-top-color: ${theme.black};
   border-top-style: solid;
-  border-width: thick;
+  border-width: medium;
 
   @media (max-width: 1080px) {
     padding: 24px 16px ;
@@ -54,7 +54,7 @@ const CompanyContainer = styled.a`
 const CompanyButton = styled.h2`
   color: ${theme.black};;
   padding: 8px;
-  margin: 0 0 0 -8px ;
+  margin: 0 0 0 -8px;
   font-size: medium;
 
   &:hover {
@@ -66,14 +66,14 @@ const CompanyButton = styled.h2`
 const CompanyText = styled.h2`
   color: ${theme.black};
   padding: 8px;
-  margin: 0 0 0 -8px ;
+  margin: 0 0 0 -8px;
   overflow: hidden;
   font-size: medium;
 `
 
 const Period = styled.h3`
   padding: 0 8px;
-  margin: 0 0 0 -8px ;
+  margin: 0 0 0 -8px;
   color: ${theme.black};
   font-weight: lighter;
   font-size: medium;
@@ -93,12 +93,13 @@ function Company(props: Props): ReactElement {
   if (companyUrl) {
     const chevron = "›"
     return <CompanyContainer rel="noopener" href={companyUrl} target="_blank" onClick={() => {
-      plausible(company)
+      console.log("plausible", plausible)
+      plausible("View job", { props: { company } })
     }
     }>
       <CompanyButton {...props}>{company} {chevron}</CompanyButton>
-    </CompanyContainer>
-  } else {
+      </CompanyContainer>
+    } else {
     return <CompanyText {...props}>{company}</CompanyText>
   }
 }

@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<props> = async context => {
     ],
     socials: [
       {
-        title: "Email",
+        title: "theo@theo.dev",
         url: "mailto:theo@theo.dev?subject=Hello Theo"
       },
       {
