@@ -86,10 +86,10 @@ resource "aws_s3_bucket_object" "site_htmls" {
 }
 
 
-//resource "aws_s3_bucket_object" "site_js" {
-//  for_each = fileset("dist/site/_next", "**")
-//  bucket = aws_s3_bucket.site.id
-//  key = each.value
-//  source = "dist/site/_next/${each.value}"
-//  etag = filemd5("dist/site/_next/${each.value}")
-//}
+resource "aws_s3_bucket_object" "site_js" {
+  for_each = fileset("dist/site/_next", "**")
+  bucket = aws_s3_bucket.site.id
+  key = each.value
+  source = "dist/site/_next/${each.value}"
+  etag = filemd5("dist/site/_next/${each.value}")
+}
