@@ -1,7 +1,7 @@
 .PHONY: deploy
 
 apply:
-	terraform apply
+	terraform apply -auto-approve
 
 invalidate:
 	#distribution_id=$(echo terraform output distribution_id)
