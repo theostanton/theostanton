@@ -8,7 +8,7 @@ export type Props = {
 }
 
 const Container = styled.a`
-  font-size: 4vw;
+  font-size: 3vw;
   text-decoration: none;
   color: ${theme.black};
   padding: 8px 16px;

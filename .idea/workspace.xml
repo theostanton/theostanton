@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/site.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/site.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/cdn.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/cdn.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/components/Home/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/site/components/Home/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/components/Job.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/components/Job.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/components/Social.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/components/Social.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/components/Tabs/Tab.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/components/Tabs/index.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +77,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile.build">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="apply" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/deploy/Makefile" target="apply" workingDirectory="" arguments="">
         <envs />
@@ -92,25 +96,29 @@
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="invalidate" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="invalidate" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
     <configuration name="print" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/deploy/Makefile" target="print" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/site/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.dev" />
         <item itemvalue="Makefile.build" />
         <item itemvalue="Makefile.apply" />
         <item itemvalue="Makefile.invalidate (1)" />
         <item itemvalue="Makefile.print" />
-        <item itemvalue="Makefile.invalidate" />
       </list>
     </recent_temporary>
   </component>
@@ -132,7 +140,7 @@
       <workItem from="1612863758875" duration="18000" />
       <workItem from="1613037610773" duration="1512000" />
       <workItem from="1613075040278" duration="1555000" />
-      <workItem from="1615013124029" duration="13956000" />
+      <workItem from="1615013124029" duration="15515000" />
     </task>
     <servers />
   </component>

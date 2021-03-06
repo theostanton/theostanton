@@ -29,5 +29,5 @@ export const Socials = styled.div`
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 16px 16px;
+  padding: 16px 8px;
 `

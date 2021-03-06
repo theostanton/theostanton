@@ -43,7 +43,6 @@ resource "aws_cloudfront_distribution" "main" {
 
   aliases = [
     var.domain_name,
-//    "www.${var.domain_name}"
   ]
 
   price_class = "PriceClass_100"

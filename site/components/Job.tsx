@@ -17,7 +17,7 @@ type LocationProps = Pick<Props, "location">
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 32px;
+  padding: 48px 32px;
   cursor: default;
   flex-direction: column;
   border-top-color: ${theme.black};
@@ -25,7 +25,7 @@ const Container = styled.div`
   border-width: thick;
 
   @media (max-width: 1080px) {
-    padding: 32px 16px ;
+    padding: 24px 16px ;
   }
 `
 
@@ -39,7 +39,7 @@ const TitleContainer = styled.div<LocationProps>`
 const Title = styled.div`
   font-size: 6vw;
   padding: 8px 16px;
-  margin-right: 16px;
+  margin: 0 16px 0 0;
   color: ${theme.black};
   background-color: #e97967;
 `
@@ -54,7 +54,8 @@ const CompanyContainer = styled.a`
 const CompanyButton = styled.h2`
   color: ${theme.black};;
   padding: 8px;
-  margin: 0;
+  margin: 0 0 0 -8px ;
+  font-size: medium;
 
   &:hover {
     background-color: ${theme.black};;
@@ -65,19 +66,23 @@ const CompanyButton = styled.h2`
 const CompanyText = styled.h2`
   color: ${theme.black};
   padding: 8px;
-  margin: 0;
+  margin: 0 0 0 -8px ;
   overflow: hidden;
+  font-size: medium;
 `
 
 const Period = styled.h3`
   padding: 0 8px;
+  margin: 0 0 0 -8px ;
   color: ${theme.black};
+  font-weight: lighter;
+  font-size: medium;
 `
 
 
 const Details = styled.div<LocationProps>`
   display: flex;
-  padding: 16px 0 0;
+  padding: 8px 0 0;
   flex-direction: column;
   align-items: ${(props: LocationProps) => props.location === "left" ? "flex-start" : "flex-end"};
 `
