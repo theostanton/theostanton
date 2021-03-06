@@ -7,7 +7,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return <html lang="en">
   <Head>
     <title>Theo Stanton</title>
-    <script async defer data-domain="staging.theo.dev" src="https://plausible.io/js/plausible.js" />
+    <script async defer data-domain="staging.theo.dev" src="https://stats.holidesk.co.uk/js/index.js" />
+    <link rel="shortcut icon" href="/static/favicon.png" />
     <meta property="title" content="Theo Stanton" key="title" />
     <meta name="title" content="Meta Tags — Preview, Edit and Generate" />
     <meta name="description" content="Engineer" />

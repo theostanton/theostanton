@@ -87,9 +87,18 @@ resource "aws_s3_bucket_object" "site_htmls" {
 
 
 resource "aws_s3_bucket_object" "site_js" {
-  for_each = fileset("dist/site/_next", "**")
+  for_each = fileset("dist/site", "**")
   bucket = aws_s3_bucket.site.id
   key = each.value
   source = "dist/site/_next/${each.value}"
   etag = filemd5("dist/site/_next/${each.value}")
+}
+
+resource "aws_route53_record" "plausible" {
+  zone_id = aws_route53_zone.main.zone_id
+  ttl = "300"
+  name = "stats"
+  type = "CNAME"
+  records = [
+    "custom.plausible.io"]
 }

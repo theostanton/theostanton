@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/site/static/favicon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy/cdn.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/cdn.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/outputs.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy/site.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/site.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/pages/_app.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript&#10;JavaScript" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.github/workflows" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/site/static" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -62,6 +63,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/site/static" />
       <recent name="$PROJECT_DIR$/.github/workflows" />
       <recent name="$PROJECT_DIR$/deploy/dist/site" />
       <recent name="$PROJECT_DIR$" />
@@ -132,7 +134,7 @@
       <workItem from="1612863758875" duration="18000" />
       <workItem from="1613037610773" duration="1512000" />
       <workItem from="1613075040278" duration="1555000" />
-      <workItem from="1615013124029" duration="12841000" />
+      <workItem from="1615013124029" duration="13667000" />
     </task>
     <servers />
   </component>
