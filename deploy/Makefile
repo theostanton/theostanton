@@ -15,4 +15,4 @@ destroy:
 invalidate:
 	$(eval DISTRIBUTION_ID=$(shell terraform output distribution_id))
 	@echo $(DISTRIBUTION_ID)
-	aws cloudfront create-invalidation --distribution-id $(DISTRIBUTION_ID) --paths /index.html --output table
+	aws cloudfront create-invalidation --distribution-id E1EHLY60F0OKAM --paths /index.html --output table
