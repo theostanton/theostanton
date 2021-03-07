@@ -1,7 +1,8 @@
 name: 'Deploy preview'
 
 on:
-  push:
+  pull_request:
+    types: [ opened,synchronize,edited,reopened ]
 
 jobs:
   preview_deploy:
