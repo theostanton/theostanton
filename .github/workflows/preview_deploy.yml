@@ -37,7 +37,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Deploy preview
-        run: make apply slug=${GITHUB_REF##*/}
+        run: make apply slug=${{ github.head_ref }}
         working-directory: preview
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
