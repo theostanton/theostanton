@@ -93,7 +93,6 @@ function Company(props: Props): ReactElement {
   if (companyUrl) {
     const chevron = "›"
     return <CompanyContainer rel="noopener" href={companyUrl} target="_blank" onClick={() => {
-      console.log("plausible", plausible)
       plausible("View job", { props: { company } })
     }
     }>

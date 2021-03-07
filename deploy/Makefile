@@ -1,4 +1,4 @@
-.PHONY: deploy
+.PHONY: apply invalidate
 
 apply:
 	terraform apply -auto-approve

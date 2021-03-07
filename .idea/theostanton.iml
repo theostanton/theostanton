@@ -8,6 +8,7 @@
       <excludeFolder url="file://$MODULE_DIR$/site/out" />
       <excludeFolder url="file://$MODULE_DIR$/deploy/.terraform" />
       <excludeFolder url="file://$MODULE_DIR$/deploy/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/dist" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

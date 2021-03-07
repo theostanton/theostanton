@@ -68,21 +68,13 @@ resource "aws_route53_record" "site_c_name" {
     aws_cloudfront_distribution.main.domain_name]
 }
 
-//resource "aws_s3_bucket_object" "site" {
-//  bucket = aws_s3_bucket.site.bucket
-//  key = "index.html"
-//  source = "dist/site/index.html"
-//  content_type = "text/html"
-//  etag = filemd5("dist/site/index.html")
-//}
-
 resource "aws_s3_bucket_object" "site" {
   content_type = "text/html"
-  for_each = fileset("dist/site", "**")
+  for_each = fileset("../dist/site", "**")
   bucket = aws_s3_bucket.site.id
   key = each.value
-  source = "dist/site/${each.value}"
-  etag = filemd5("dist/site/${each.value}")
+  source = "../dist/site/${each.value}"
+  etag = filemd5("../dist/site/${each.value}")
 }
 
 resource "aws_route53_record" "plausible" {
