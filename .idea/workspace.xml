@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/.terraform/terraform.tfstate" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/domain.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/outputs.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/site.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/preview_tear_down.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/preview_tear_down.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/cdn.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/cdn.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/domain.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/outputs.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/site.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/site.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preview/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/common/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preview/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/preview/domain.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/preview/main.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/preview/outputs.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/preview/site.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/preview/variables.tf" beforeDir="false" />
-    </list>
+    <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
