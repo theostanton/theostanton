@@ -2,6 +2,7 @@ name: 'Deploy preview'
 
 on:
   pull_request:
+    types: [ opened,synchronize ]
 
 
 jobs:
