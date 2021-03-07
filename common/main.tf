@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "theo.dev-state"
-    key = "preview-states "
+    key = "common"
     region = "us-east-1"
   }
 }
@@ -9,8 +9,4 @@ terraform {
 provider "aws" {
   profile = "default"
   region = "us-east-1"
-}
-
-locals {
-  domain_name = "${var.slug}.${var.base_url}"
 }
