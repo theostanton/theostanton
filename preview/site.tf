@@ -39,26 +39,6 @@ data "aws_iam_policy_document" "site" {
   }
 }
 
-//resource "aws_route53_record" "site_a_record" {
-//  zone_id = aws_route53_zone.main.zone_id
-//  name = var.domain_name
-//  type = "A"
-//  alias {
-//    name = aws_cloudfront_distribution.main.domain_name
-//    zone_id = aws_cloudfront_distribution.main.hosted_zone_id
-//    evaluate_target_health = false
-//  }
-//}
-//
-//resource "aws_route53_record" "site_c_name" {
-//  zone_id = aws_route53_zone.main.zone_id
-//  name = "www"
-//  type = "CNAME"
-//  ttl = "300"
-//  records = [
-//    aws_cloudfront_distribution.main.domain_name]
-//}
-
 resource "aws_s3_bucket_object" "site" {
   content_type = "text/html"
   for_each = fileset("../dist/site", "**")
