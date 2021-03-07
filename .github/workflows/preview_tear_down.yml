@@ -2,7 +2,7 @@ name: 'Tear down preview'
 
 on:
   pull_request:
-    types: [closed]
+    types: [opened, synchronize]
 
 jobs:
   terraform:

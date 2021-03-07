@@ -3,6 +3,7 @@ name: 'Deploy'
 on:
   pull_request:
 
+
 jobs:
   terraform:
     name: 'Build and deploy'
