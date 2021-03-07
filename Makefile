@@ -1,5 +1,7 @@
 .PHONY: deploy
 
+# bump
+
 deploy:
 	$(MAKE) -C site build
 	$(MAKE) -C deploy apply
