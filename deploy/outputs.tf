@@ -13,3 +13,7 @@ output "url" {
 output "distribution_id" {
   value = aws_cloudfront_distribution.main.id
 }
+
+output "zone_id" {
+  value = aws_route53_zone.main.zone_id
+}

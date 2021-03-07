@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="" />
+    <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/outputs.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/preview/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/domain.tf" beforeDir="false" afterPath="$PROJECT_DIR$/preview/domain.tf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +78,7 @@
   </component>
   <component name="RunManager" selected="Makefile.apply">
     <configuration name="apply" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/preview/Makefile" target="apply" workingDirectory="" arguments="">
+      <makefile filename="$PROJECT_DIR$/deploy/Makefile" target="apply" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
@@ -83,7 +89,7 @@
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="invalidate (1)" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+    <configuration name="invalidate" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/deploy/Makefile" target="invalidate" workingDirectory="" arguments="">
         <envs />
       </makefile>
@@ -108,10 +114,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Makefile.apply" />
+        <item itemvalue="Makefile.invalidate" />
+        <item itemvalue="Makefile.apply" />
         <item itemvalue="Makefile.build" />
         <item itemvalue="npm.dev" />
-        <item itemvalue="Makefile.build" />
-        <item itemvalue="Makefile.apply" />
       </list>
     </recent_temporary>
   </component>

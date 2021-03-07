@@ -4,5 +4,6 @@ apply:
 	terraform apply -auto-approve
 
 invalidate:
-	#distribution_id=$(echo terraform output distribution_id)
-	aws cloudfront create-invalidation --distribution-id EHBVTTS787MW4 --paths /index.html --output table
+	$(eval DISTRIBUTION_ID=$(shell  terraform output distribution_id))
+	@echo $(DISTRIBUTION_ID)
+	aws cloudfront create-invalidation --distribution-id $(DISTRIBUTION_ID) --paths /index.html --output table
