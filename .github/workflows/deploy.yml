@@ -38,8 +38,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-  deploy:
-    name: 'Build and deploy'
+  build:
+    name: 'Build'
     runs-on: ubuntu-latest
 
     defaults:
@@ -58,6 +58,21 @@ jobs:
         run: make build
         working-directory: site
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist/
+
+  deploy:
+    name: 'Deploy'
+    runs-on: ubuntu-latest
+    needs: [ deploy_common, build ]
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
@@ -68,10 +83,22 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
+
       - name: Deploy
-        run: make apply
+        run: |
+          if [$REF == 'refs/heads/main']
+          then
+            make apply slug=default
+          else
+            make apply slug=${{ github.head_ref }}
+          fi
+
         working-directory: deploy
         env:
+          REF: ${{ github.ref }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
