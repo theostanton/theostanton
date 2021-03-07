@@ -10,3 +10,5 @@ destroy:
 	test $(slug)
 	terraform workspace select $(slug)
 	terraform destroy -auto-approve -var="slug=$(slug)"
+	terraform workspace select default
+	terraform workspace delete $(slug)
