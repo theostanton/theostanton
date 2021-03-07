@@ -1,8 +1,7 @@
 name: 'Deploy preview'
 
 on:
-  pull_request:
-
+  push:
 
 jobs:
   preview_deploy:

@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/preview_deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/preview_deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/preview_tear_down.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/preview_tear_down.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +137,7 @@
       <workItem from="1613037610773" duration="1512000" />
       <workItem from="1613075040278" duration="1555000" />
       <workItem from="1615013124029" duration="16087000" />
-      <workItem from="1615069195752" duration="4219000" />
+      <workItem from="1615069195752" duration="4573000" />
     </task>
     <servers />
   </component>

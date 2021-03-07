@@ -2,7 +2,7 @@ name: 'Tear down preview'
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [closed]
 
 jobs:
   preview_tear_down:
