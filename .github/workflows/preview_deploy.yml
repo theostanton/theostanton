@@ -1,12 +1,12 @@
-name: 'Deploy'
+name: 'Deploy preview'
 
 on:
   pull_request:
 
 
 jobs:
-  terraform:
-    name: 'Build and deploy'
+  preview_deploy:
+    name: 'Build and deploy preview'
     runs-on: ubuntu-latest
 
     defaults:

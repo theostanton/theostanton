@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  terraform:
+  preview_tear_down:
     name: 'Tear down preview'
     runs-on: ubuntu-latest
 
