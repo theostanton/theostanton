@@ -76,7 +76,8 @@ jobs:
 
       - name: Deploy
         run: make apply branch=${{ github.head_ref }}
-#        TODO this wont work on 'main'
+
+# TODO this wont work on 'main'
 
         working-directory: deploy
         env:
@@ -86,6 +87,7 @@ jobs:
 
       - name: Distribute
         run: make invalidate
+        working-directory: deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
