@@ -2,7 +2,7 @@ resource "aws_cloudfront_distribution" "main" {
 
   origin {
     domain_name = aws_s3_bucket.site.website_endpoint
-    origin_id = var.domain_name
+    origin_id = local.domain_name
 
     custom_origin_config {
       http_port = "80"
@@ -27,7 +27,7 @@ resource "aws_cloudfront_distribution" "main" {
     cached_methods = [
       "GET",
       "HEAD"]
-    target_origin_id = var.domain_name
+    target_origin_id = local.domain_name
 
     forwarded_values {
       query_string = false
@@ -42,7 +42,7 @@ resource "aws_cloudfront_distribution" "main" {
   }
 
   aliases = [
-    var.domain_name,
+    local.domain_name,
   ]
 
   price_class = "PriceClass_100"
@@ -54,7 +54,7 @@ resource "aws_cloudfront_distribution" "main" {
   }
 
   viewer_certificate {
-    acm_certificate_arn = aws_acm_certificate.main.arn
+    acm_certificate_arn = local.common.acm_certificate_arn
     ssl_support_method = "sni-only"
   }
 }

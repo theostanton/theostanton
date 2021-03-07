@@ -5,11 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab47a17c-3ea9-4c5c-86b8-09a96a68046b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/common/.terraform/terraform.tfstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/domain.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/main.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/outputs.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/site.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/preview_tear_down.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/preview_tear_down.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/cdn.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/cdn.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/domain.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/main.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/outputs.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preview/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/preview/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preview/domain.tf" beforeDir="false" afterPath="$PROJECT_DIR$/preview/domain.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/site.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/site.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/common/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/domain.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/main.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/outputs.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/site.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/variables.tf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +70,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript&#10;JavaScript" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.github/workflows" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/common" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -63,11 +82,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common" />
       <recent name="$PROJECT_DIR$/.github/workflows" />
       <recent name="$PROJECT_DIR$/preview" />
       <recent name="$PROJECT_DIR$/site/static" />
       <recent name="$PROJECT_DIR$/deploy/dist/site" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/site" />
@@ -76,7 +95,13 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile.apply">
+  <component name="RunManager" selected="Makefile.apply (1)">
+    <configuration name="apply (1)" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/common/Makefile" target="apply" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
     <configuration name="apply" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/deploy/Makefile" target="apply" workingDirectory="" arguments="">
         <envs />
@@ -95,12 +120,6 @@
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="print" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/deploy/Makefile" target="print" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/site/package.json" />
       <command value="run" />
@@ -113,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Makefile.apply (1)" />
         <item itemvalue="Makefile.apply" />
         <item itemvalue="Makefile.invalidate" />
         <item itemvalue="Makefile.apply" />
         <item itemvalue="Makefile.build" />
-        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>

@@ -1,7 +1,16 @@
 .PHONY: apply invalidate
 
 apply:
-	terraform apply -auto-approve
+	test $(branch)
+	terraform workspace select $(branch) || terraform workspace new $(branch)
+	terraform apply -auto-approve -var="branch=$(branch)"
+
+destroy:
+	test $(slug)
+	terraform workspace select $(slug)
+	terraform destroy -auto-approve -var="slug=$(slug)"
+	terraform workspace select default
+	terraform workspace delete $(slug)
 
 invalidate:
 	$(eval DISTRIBUTION_ID=$(shell  terraform output distribution_id))

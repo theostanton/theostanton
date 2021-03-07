@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "site" {
-  bucket = var.domain_name
+  bucket = local.domain_name
   acl = "public-read"
 
   cors_rule {
@@ -34,38 +34,20 @@ data "aws_iam_policy_document" "site" {
       type = "AWS"
     }
     resources = [
-      "arn:aws:s3:::${var.domain_name}/*"
+      "arn:aws:s3:::${local.domain_name}/*"
     ]
   }
 }
 
-resource "aws_s3_bucket" "site_redirect" {
-  bucket = "www.${var.domain_name}"
-  acl = "public-read"
-
-  website {
-    redirect_all_requests_to = var.domain_name
-  }
-}
-
 resource "aws_route53_record" "site_a_record" {
-  zone_id = aws_route53_zone.main.zone_id
-  name = var.domain_name
+  zone_id = local.common.zone_id
+  name = local.domain_name
   type = "A"
   alias {
     name = aws_cloudfront_distribution.main.domain_name
     zone_id = aws_cloudfront_distribution.main.hosted_zone_id
     evaluate_target_health = false
   }
-}
-
-resource "aws_route53_record" "site_c_name" {
-  zone_id = aws_route53_zone.main.zone_id
-  name = "www"
-  type = "CNAME"
-  ttl = "300"
-  records = [
-    aws_cloudfront_distribution.main.domain_name]
 }
 
 resource "aws_s3_bucket_object" "site" {
@@ -78,7 +60,9 @@ resource "aws_s3_bucket_object" "site" {
 }
 
 resource "aws_route53_record" "plausible" {
-  zone_id = aws_route53_zone.main.zone_id
+  count = local.is_preview ? 0 : 1
+
+  zone_id = local.common.zone_id
   ttl = "300"
   name = "stats"
   type = "CNAME"
