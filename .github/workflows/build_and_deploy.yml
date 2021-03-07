@@ -75,13 +75,8 @@ jobs:
 
 
       - name: Deploy
-        run: |
-          if [$REF == 'refs/heads/main']
-          then
-            make apply slug=default
-          else
-            make apply slug=${{ github.head_ref }}
-          fi
+        run: make apply branch=${{ github.head_ref }}
+#        TODO this wont work on 'main'
 
         working-directory: deploy
         env:
