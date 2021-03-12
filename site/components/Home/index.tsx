@@ -9,7 +9,7 @@ import PlausibleProvider from "next-plausible"
 const Home: React.FC<props> = ((props: props) => {
   const { jobs, socials } = props
   return (
-    <PlausibleProvider domain={"staging.theo.dev"} enabled={true}>
+    <PlausibleProvider domain={"theo.dev"} enabled={true}>
       <Container>
         <Title>Theo Stanton</Title>
         <Content>
