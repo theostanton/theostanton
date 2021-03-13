@@ -28,6 +28,6 @@ export const Socials = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 16px 8px;
+  text-align: center;
+  flex-wrap: nowrap;
 `

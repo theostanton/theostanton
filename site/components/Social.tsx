@@ -9,10 +9,12 @@ export type Props = {
 }
 
 const Container = styled.a`
+  flex: 0;
+  margin: 8px 0;
+  padding: 16px 8px;
   font-size: 3vw;
   text-decoration: none;
   color: ${theme.black};
-  padding: 8px 16px;
   cursor: pointer;
 
   &:hover {
