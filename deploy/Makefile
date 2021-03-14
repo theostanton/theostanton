@@ -13,6 +13,5 @@ destroy:
 	terraform workspace delete $(slug)
 
 invalidate:
-	$(eval DISTRIBUTION_ID=$(shell terraform output distribution_id))
-	@echo $(DISTRIBUTION_ID)
-	aws cloudfront create-invalidation --distribution-id E1EHLY60F0OKAM --paths /index.html --output table
+	test $(distribution_id)
+	aws cloudfront create-invalidation --distribution-id $(distribution_id) --paths /index.html --output table
