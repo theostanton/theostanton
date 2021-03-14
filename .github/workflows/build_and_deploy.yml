@@ -94,7 +94,6 @@ jobs:
   deploy:
     name: 'Prep'
     runs-on: ubuntu-latest
-    needs: [ build ]
 
     defaults:
       run:
