@@ -55,7 +55,18 @@ jobs:
       run:
         shell: bash
 
+    outputs:
+      output: ${{ steps.set_output.outputs.outputs }}
+
     steps:
+      - name: Print branch name
+        if: github.event_name == 'pull_request'
+        run: echo "BRANCH_NAME=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
+
+      - name: Extract branch name
+        if: github.event_name != 'pull_request'
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
+
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -74,13 +85,9 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Deploy
-        run: make apply branch=${{ github.head_ref }}
-
-        # TODO this wont work on 'main'
-
+        run: make apply branch=$BRANCH_NAME
         working-directory: deploy
         env:
-          REF: ${{ github.ref }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
@@ -91,6 +98,11 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
+      - name: set output
+        id: set_output
+        run: |
+          echo ::set-output name=outputs::$(terraform outputs -json)
+        working-directory: deploy
 
   invalidate:
     name: 'Invalidate'
@@ -111,11 +123,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - run: echo ::set-output name=distribution_id::$(terraform output distribution_id)
-        id: load_distribution_id
-
       - name: Distribute
-        run: make invalidate
+        run: make invalidate distribution_id=${{fromJSON(needs.deploy.outputs.outputs).distribution_id.value}}
         working-directory: deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
