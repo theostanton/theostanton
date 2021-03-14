@@ -125,6 +125,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Print
+        run: echo "DISTRIBUTION_ID = $DISTRIBUTION_ID"
+        working-directory: deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          DISTRIBUTION_ID: ${{fromJSON( needs.deploy.outputs.output).distribution_id.value }}
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
@@ -141,3 +149,4 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          DISTRIBUTION_ID:${{fromJSON( needs.deploy.outputs.output).distribution_id.value }}
