@@ -103,6 +103,9 @@ jobs:
       output: ${{ steps.set_output.outputs.outputs }}
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: set output
         id: set_output
         run: |
