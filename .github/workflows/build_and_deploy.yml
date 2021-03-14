@@ -55,9 +55,6 @@ jobs:
       run:
         shell: bash
 
-    outputs:
-      output: ${{ steps.set_output.outputs.outputs }}
-
     steps:
       - name: Print branch name
         if: github.event_name == 'pull_request'
@@ -91,12 +88,6 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - name: set output
-        id: set_output
-        run: |
-          echo ::set-output name=outputs::$(echo $(terraform output -json))
-        working-directory: deploy
-
   invalidate:
     name: 'Invalidate'
     runs-on: ubuntu-latest
@@ -110,14 +101,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Print
-        run: echo "DISTRIBUTION_ID = $DISTRIBUTION_ID"
-        working-directory: deploy
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          DISTRIBUTION_ID: ${{ fromJSON( needs.deploy.outputs.output) }}
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
@@ -129,9 +112,9 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Distribute
-        run: make invalidate distribution_id=${{fromJSON(needs.deploy.outputs.output).distribution_id.value}}
+        run: make invalidate distribution_id=$DISTRIBUTION_ID
         working-directory: deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          DISTRIBUTION_ID: ${{fromJSON( needs.deploy.outputs.output).distribution_id.value }}
+          DISTRIBUTION_ID: EOXKWIPVN9Q2H
