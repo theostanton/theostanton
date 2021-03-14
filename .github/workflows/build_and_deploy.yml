@@ -94,7 +94,7 @@ jobs:
       - name: set output
         id: set_output
         run: |
-          echo ::set-output name=outputs::$(terraform output distribution_id -json)
+          echo ::set-output name=outputs::$(terraform output -json)
         working-directory: deploy
 
   invalidate:
