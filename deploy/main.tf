@@ -22,7 +22,7 @@ data "terraform_remote_state" "common" {
 }
 
 locals {
-  is_preview = var.branch != "default"
+  is_preview = var.branch != "master"
   domain_name = local.is_preview ?  "${var.branch}.${var.base_url}" : var.base_url
   common = {
     acm_certificate_arn = data.terraform_remote_state.common.outputs.acm_certificate_arn

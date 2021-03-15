@@ -6,11 +6,11 @@ apply:
 	terraform apply -auto-approve -var="branch=$(branch)"
 
 destroy:
-	test $(slug)
-	terraform workspace select $(slug)
-	terraform destroy -auto-approve -var="slug=$(slug)"
+	test $(branch)
+	terraform workspace select $(branch)
+	terraform destroy -auto-approve -var="branch=$(branch)"
 	terraform workspace select default
-	terraform workspace delete $(slug)
+	terraform workspace delete $(branch)
 
 invalidate:
 	export distribution_id=$(terraform output distribution_id)

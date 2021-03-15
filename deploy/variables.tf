@@ -1,5 +1,5 @@
 variable "base_url" {
-  default = "holidesk.co.uk"
+  default = "theo.dev"
   type = string
 }
 
