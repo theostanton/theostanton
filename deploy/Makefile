@@ -15,4 +15,4 @@ destroy:
 invalidate:
 	export distribution_id=$(terraform output distribution_id)
 	echo distribution_id
-	aws cloudfront create-invalidation --distribution-id $(terraform output distribution_id) --paths /index.html --output table
+	aws cloudfront create-invalidation --distribution-id E3IY8ZD12T6HMB --paths "/**" --output table
