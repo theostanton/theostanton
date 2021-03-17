@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps<props> = async context => {
   const props: props = {
     jobs: [
       {
-        title: "VP Engineering",
+        title: "VP of Engineering",
         company: "Sport Heroes",
         companyUrl: "https://sportheroes.com",
         period: "October 2020 - Present"
@@ -46,16 +46,16 @@ export const getStaticProps: GetStaticProps<props> = async context => {
         url: "mailto:theo@theo.dev?subject=Hello Theo"
       },
       {
-        title: "Instagram",
-        url: "https://instagram.com/theostanton"
-      },
-      {
         title: "Github",
         url: "https://github.com/theostanton"
       },
       {
         title: "LinkedIn",
         url: "https://linkedin.com/in/theostanton"
+      },
+      {
+        title: "Instagram",
+        url: "https://instagram.com/theostanton"
       },
       {
         title: "Strava",
