@@ -59,7 +59,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: delpoy/dist
+          path: deploy/dist
 
   deploy:
     name: 'Deploy'
