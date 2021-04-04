@@ -58,8 +58,13 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: dist
-          path: deploy/dist
+          name: stats
+          path: deploy/dist/stats
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: site
+          path: deploy/dist/site
 
   deploy:
     name: 'Deploy'
@@ -87,7 +92,11 @@ jobs:
 
       - uses: actions/download-artifact@v2
         with:
-          name: dist
+          name: stats
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: site
 
       - name: Terraform Init
         run: terraform init
