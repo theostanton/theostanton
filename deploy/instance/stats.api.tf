@@ -1,5 +1,9 @@
+locals {
+  api_domain_name = "${local.domain_prefix}api.${var.base_url}"
+}
+
 resource "aws_api_gateway_rest_api" "stats" {
-  name = local.is_preview ?  "${var.branch}-stats.${var.base_url}" : "stats.${var.base_url}"
+  name = local.api_domain_name
 }
 
 resource "aws_api_gateway_deployment" "stats" {
@@ -8,7 +12,7 @@ resource "aws_api_gateway_deployment" "stats" {
     click: data.archive_file.click.output_sha,
   }
   depends_on = [
-    aws_api_gateway_integration.view,
+    aws_api_gateway_integration.view_post,
     aws_api_gateway_integration.click,
   ]
   rest_api_id = aws_api_gateway_rest_api.stats.id
@@ -22,7 +26,17 @@ resource "aws_api_gateway_deployment" "stats" {
 
 resource "aws_api_gateway_domain_name" "stats" {
   certificate_arn = local.common.acm_certificate_arn
-  domain_name = "${local.domain_prefix}api.${var.base_url}"
+  domain_name = local.api_domain_name
+}
+
+resource "aws_api_gateway_gateway_response" "error" {
+  rest_api_id = aws_api_gateway_rest_api.stats.id
+  status_code = 403
+  response_type = "UNAUTHORIZED"
+
+  response_parameters = {
+    "gatewayresponse.header.Access-Control-Allow-Origin" = "'*'"
+  }
 }
 
 resource "aws_route53_record" "stats" {

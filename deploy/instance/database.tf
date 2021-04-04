@@ -18,14 +18,14 @@ resource "aws_db_instance" "database" {
     aws_security_group.open.id]
 }
 
-//resource "null_resource" "schema" {
-//  triggers = {
-//    "address":aws_db_instance.database.address
-//  }
-//  provisioner "local-exec" {
-//    command = "psql ${local.variables.DATABASE_URL} -f ./database.schema.sql"
-//  }
-//}
+resource "null_resource" "schema" {
+  triggers = {
+    "address":aws_db_instance.database.address
+  }
+  provisioner "local-exec" {
+    command = "psql ${local.variables.DATABASE_URL} -f ./database.schema.sql"
+  }
+}
 
 resource "aws_security_group" "open" {
   name = "theodev-open-${local.domain_suffix}"

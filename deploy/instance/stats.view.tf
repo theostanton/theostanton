@@ -32,18 +32,17 @@ resource "aws_api_gateway_resource" "view" {
   path_part = "view"
 }
 
-
-resource "aws_api_gateway_method" "view" {
+resource "aws_api_gateway_method" "view_post" {
   rest_api_id = aws_api_gateway_rest_api.stats.id
   resource_id = aws_api_gateway_resource.view.id
   http_method = "POST"
   authorization = "NONE"
 }
 
-resource "aws_api_gateway_integration" "view" {
+resource "aws_api_gateway_integration" "view_post" {
   rest_api_id = aws_api_gateway_rest_api.stats.id
   resource_id = aws_api_gateway_resource.view.id
-  http_method = aws_api_gateway_method.view.http_method
+  http_method = aws_api_gateway_method.view_post.http_method
   integration_http_method = "POST"
   type = "AWS_PROXY"
   uri = aws_lambda_function.view.invoke_arn

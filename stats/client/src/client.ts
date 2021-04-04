@@ -47,8 +47,11 @@ export class Stats {
       uid: this.uid
     }
     const url = `${baseUrl()}/view`
-    console.log("url", url)
-    await axios.post(url, request, {})
+    await axios.post(url, JSON.stringify(request), {
+      headers: {
+        "Content-Type": "text/plain"
+      }
+    })
   }
 
   private async trackClick(target: string): Promise<void> {
@@ -58,6 +61,10 @@ export class Stats {
       uid: this.uid
     }
     const url = `${baseUrl()}/click`
-    await axios.post(url, request, {})
+    await axios.post(url, JSON.stringify(request), {
+      headers: {
+        "Content-Type": "text/plain"
+      }
+    })
   }
 }

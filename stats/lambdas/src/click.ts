@@ -11,6 +11,9 @@ async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResu
   const response = await controller.invoke(request)
   return {
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
     body: JSON.stringify(response)
   }
 }
