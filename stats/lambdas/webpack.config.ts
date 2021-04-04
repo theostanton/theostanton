@@ -4,11 +4,11 @@ import * as webpack from "webpack"
 const config: webpack.Configuration = {
   mode: "production",
   entry: {
-    "view": "./src/routes/view.ts",
-    "click": "./src/routes/click.ts"
+    "view": "./src/view.ts",
+    "click": "./src/click.ts"
   },
   output: {
-    path: path.resolve(__dirname, "..", "dist/stats"),
+    path: path.resolve(__dirname, "../..", "deploy/dist/stats"),
     libraryTarget: "commonjs",
     filename: "[name].js"
   },

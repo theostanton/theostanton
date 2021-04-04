@@ -5,16 +5,16 @@ endif
 
 .PHONY: deploy
 
-deploy:
+build:
+	yarn
+	yarn transpile
+	$(MAKE) -C stats/lambdas build
+	$(MAKE) -C site build
+
+deploy: build
 	test $(branch)
-	# $(MAKE) -C site build
-	$(MAKE) -C stats build
-	$(MAKE) -C deploy apply branch=$(branch)
+	$(MAKE) -C deploy/instance apply branch=$(branch)
 
 envs:
 	test $(branch)
 	$(shell echo $(MAKE) -C deploy output branch=feature-stats output=envs) > .env
-
-generate:
-	test $(DATABASE_URL)
-	yarn workspace @theostanton/model generate -c $(DATABASE_URL)

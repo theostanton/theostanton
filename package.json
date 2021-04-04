@@ -6,7 +6,8 @@
   "author": "Theo <theo@theo.dev>",
   "license": "MIT",
   "scripts": {
-    "watch:all": "yarn wsrun watch"
+    "watch:all": "yarn wsrun -atm watch",
+    "transpile": "yarn wsrun -sm transpile"
   },
   "devDependencies": {
     "@types/node": "^14.14.37",

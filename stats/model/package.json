@@ -5,10 +5,12 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "transpile": "tsc"
   },
   "dependencies": {
     "pg": "^8.5.1",
+    "pg-native": "^3.0.0",
     "dotenv": "^8.2.0"
   },
   "devDependencies": {

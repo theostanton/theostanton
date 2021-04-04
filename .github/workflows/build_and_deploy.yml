@@ -18,6 +18,14 @@ jobs:
         shell: bash
 
     steps:
+      - name: Deduce STATS_URL
+        if: github.event_name == 'pull_request'
+        run: echo "STATS_URL=${GITHUB_HEAD_REF}-stats.theo.dev" >> $GITHUB_ENV
+
+      - name: Deduce STATS_URL
+        if: github.event_name != 'pull_request'
+        run: echo "STATS_URL=stats.theo.dev" >> $GITHUB_ENV
+
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -35,16 +43,22 @@ jobs:
 
       - name: Install dependencies
         run: yarn
-        working-directory: site
+
+      - name: Transpile
+        run: yarn transpile
 
       - name: Build site
         run: make build
         working-directory: site
 
+      - name: Build lambdas
+        run: make build
+        working-directory: stats/lambdas
+
       - uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: dist/site
+          path: delpoy/dist
 
   deploy:
     name: 'Deploy'
@@ -56,7 +70,7 @@ jobs:
         shell: bash
 
     steps:
-      - name: Print branch name
+      - name: Extract branch name
         if: github.event_name == 'pull_request'
         run: echo "BRANCH_NAME=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
 
@@ -76,14 +90,14 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: deploy
+        working-directory: deploy/instance
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Deploy
         run: make apply branch=$BRANCH_NAME
-        working-directory: deploy
+        working-directory: deploy/instance
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
