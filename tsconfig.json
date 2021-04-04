@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "strict": false,
+    "module": "CommonJS",
+    "incremental": false,
+    "target": "ESNext",
+    "noImplicitAny": true,
+    "pretty": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "allowSyntheticDefaultImports": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "Node",
+    "declaration": true,
+    "types": [
+      "node"
+    ],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "lib": [
+      "ES2020.Promise"
+    ]
+  }
+}

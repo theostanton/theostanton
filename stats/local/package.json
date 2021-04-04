@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "name": "@stats/local",
+  "license": "MIT",
+  "scripts": {
+    "start": "ENV_PATH=../../.env ts-node-dev src/serve.ts"
+  },
+  "dependencies": {
+    "@stats/model": "*",
+    "@stats/controllers": "*",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "ts-node-dev": "^1.1.6"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/cors": "^2.8.10"
+  }
+}

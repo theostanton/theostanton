@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "composite": false,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./src"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

@@ -1,6 +1,6 @@
 .PHONY: build
 
 build:
-	yarn build
-	mkdir -p ../dist
-	cd out && cp -R . ../../dist/site
+	STATS_URL=http://localhost:3000 yarn build
+	mkdir -p ../deploy/dist/site
+	cd out && cp -R . ../../deploy/dist/site
