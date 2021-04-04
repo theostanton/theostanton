@@ -58,14 +58,3 @@ resource "aws_s3_bucket_object" "site" {
   source = "../dist/site/${each.value}"
   etag = filemd5("../dist/site/${each.value}")
 }
-
-resource "aws_route53_record" "plausible" {
-  count = local.is_preview ? 0 : 1
-
-  zone_id = local.common.zone_id
-  ttl = "300"
-  name = "stats"
-  type = "CNAME"
-  records = [
-    "custom.plausible.io"]
-}
