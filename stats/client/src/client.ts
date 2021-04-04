@@ -18,8 +18,8 @@ export class Stats {
 
   private static async instance(): Promise<Stats> {
     if (!Stats.client) {
-      const uid = await (await FingerprintJS.load()).get()
-      Stats.client = new Stats(uid)
+      const fingerprint = await (await FingerprintJS.load()).get()
+      Stats.client = new Stats(fingerprint.visitorId)
     }
     return Stats.client
   }
