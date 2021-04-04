@@ -1,9 +1,6 @@
 import { view, click } from "@stats/model"
 import axios from "axios"
-import { v4 as uuid } from "uuid"
-import Cookies from "js-cookie"
-
-const ANONYMOUS_ID_KEY = "anon_id"
+import FingerprintJS from "@fingerprintjs/fingerprintjs"
 
 function baseUrl(): (string | null) {
   if (!process.env.STATS_URL) {
@@ -13,31 +10,32 @@ function baseUrl(): (string | null) {
   return process.env.STATS_URL
 }
 
-function getAnonymousId(): string {
-  const existingValue = Cookies.get(ANONYMOUS_ID_KEY)
-  if (existingValue) {
-    return existingValue
-  }
-  const newValue = uuid()
-  Cookies.set(ANONYMOUS_ID_KEY, newValue)
-  return newValue
-}
 
 export class Stats {
   uid: string
 
+  private static client: Stats | undefined
+
+  private static async instance(): Promise<Stats> {
+    if (!Stats.client) {
+      const uid = await (await FingerprintJS.load()).get()
+      Stats.client = new Stats(uid)
+    }
+    return Stats.client
+  }
+
   static async view(page: string): Promise<void> {
-    const client = new Stats()
+    const client = await Stats.instance()
     await client.trackView(page)
   }
 
   static async click(target: string): Promise<void> {
-    const client = new Stats()
+    const client = await Stats.instance()
     await client.trackClick(target)
   }
 
-  constructor() {
-    this.uid = getAnonymousId()
+  constructor(uid: string) {
+    this.uid = uid
   }
 
   private async trackView(page: string): Promise<void> {
