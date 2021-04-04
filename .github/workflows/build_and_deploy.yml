@@ -21,15 +21,15 @@ jobs:
     steps:
       - name: Deduce STATS_URL
         if: github.event_name == 'pull_request'
-        run: echo "STATS_URL=https://${GITHUB_HEAD_REF}-stats.theo.dev" >> $GITHUB_ENV
+        run: echo "STATS_URL=https://${GITHUB_HEAD_REF}-api.theo.dev" >> $GITHUB_ENV
 
       - name: Deduce STATS_URL
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
-        run: echo "STATS_URLhttps://stats.theo.dev" >> $GITHUB_ENV
+        run: echo "STATS_URLhttps://api.theo.dev" >> $GITHUB_ENV
 
       - name: Deduce STATS_URL
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/staging'
-        run: echo "STATS_URL=https://staging-stats.theo.dev" >> $GITHUB_ENV
+        run: echo "STATS_URL=https://staging-api.theo.dev" >> $GITHUB_ENV
 
       - name: Checkout
         uses: actions/checkout@v2
