@@ -11,13 +11,13 @@ export async function getForUser(uid: string): Promise<Session> {
           from sessions
           where "user" = $1
       )
-      select *
+      select l.session as id
       from latest as l
                inner join views as v
                           on l.session = v.session
                               and v.timestamp > now() - interval '5 minutes'
       union
-      select *
+      select l.session as id
       from latest as l
                inner join clicks as c
                           on l.session = c.session

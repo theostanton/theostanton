@@ -50,6 +50,12 @@ resource "aws_route53_record" "site_a_record" {
   }
 }
 
+//data "archive_file" "site" {
+//  type = "zip"
+//  output_path = "../dist/site.zip"
+//  source_dir = "../dist/site"
+//}
+
 resource "aws_s3_bucket_object" "site" {
   content_type = "text/html"
   for_each = fileset("../dist/site", "**")

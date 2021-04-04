@@ -45,9 +45,9 @@ export class Stats {
       uid: this.uid
     }
     const url = `${baseUrl()}/view`
-    await axios.post(url, JSON.stringify(request), {
+    await axios.post(url, request, {
       headers: {
-        "Content-Type": "text/plain"
+        "Content-Type": "application/json"
       }
     })
   }
@@ -59,9 +59,9 @@ export class Stats {
       uid: this.uid
     }
     const url = `${baseUrl()}/click`
-    await axios.post(url, JSON.stringify(request), {
+    await axios.post(url, request, {
       headers: {
-        "Content-Type": "text/plain"
+        "Content-Type": "application/json"
       }
     })
   }

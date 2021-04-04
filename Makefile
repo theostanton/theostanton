@@ -13,10 +13,9 @@ build:
 	$(MAKE) -C site build
 
 deploy: build
-    test $(domain_prefix)
 	test $(branch)
 	$(MAKE) -C deploy/instance apply branch=$(branch)
 
 envs:
 	test $(branch)
-	$(shell echo $(MAKE) -C deploy output branch=feature-stats output=envs) > .env
+	$(shell echo $(MAKE) -C deploy/instance output branch=staging output=envs) > .env

@@ -1,6 +1,7 @@
 .PHONY: apply invalidate
 
 apply:
+	terraform validate
 	test $(branch)
 	terraform workspace select $(branch) || terraform workspace new $(branch)
 	terraform apply -auto-approve -var="branch=$(branch)"

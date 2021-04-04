@@ -8,12 +8,12 @@ resource "aws_api_gateway_rest_api" "stats" {
 
 resource "aws_api_gateway_deployment" "stats" {
   triggers = {
-    view: data.archive_file.click.output_sha,
-    click: data.archive_file.click.output_sha,
+    view: module.view.hash,
+    click: module.click.hash,
   }
   depends_on = [
-    aws_api_gateway_integration.view_post,
-    aws_api_gateway_integration.click,
+    module.click,
+    module.view,
   ]
   rest_api_id = aws_api_gateway_rest_api.stats.id
   stage_name = "v1"
@@ -55,4 +55,31 @@ resource "aws_api_gateway_base_path_mapping" "stats" {
   api_id = aws_api_gateway_rest_api.stats.id
   domain_name = aws_api_gateway_domain_name.stats.domain_name
   stage_name = aws_api_gateway_deployment.stats.stage_name
+}
+
+
+resource "aws_api_gateway_gateway_response" "response_4xx" {
+  rest_api_id = aws_api_gateway_rest_api.stats.id
+  response_type = "DEFAULT_4XX"
+
+  response_templates = {
+    "application/json" = "{'message':$context.error.messageString}"
+  }
+
+  response_parameters = {
+    "gatewayresponse.header.Access-Control-Allow-Origin" = "'*'"
+  }
+}
+
+resource "aws_api_gateway_gateway_response" "response_5xx" {
+  rest_api_id = aws_api_gateway_rest_api.stats.id
+  response_type = "DEFAULT_5XX"
+
+  response_templates = {
+    "application/json" = "{'message':$context.error.messageString}"
+  }
+
+  response_parameters = {
+    "gatewayresponse.header.Access-Control-Allow-Origin" = "'*'"
+  }
 }

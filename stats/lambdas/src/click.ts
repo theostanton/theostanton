@@ -14,7 +14,7 @@ async function handler(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResu
     headers: {
       "Access-Control-Allow-Origin": "*"
     },
-    body: JSON.stringify(response,null,4)
+    body: JSON.stringify(response, null, 4)
   }
 }
 
