@@ -1,7 +1,7 @@
 data "archive_file" "view" {
   type = "zip"
   source_file = "../dist/stats/view.js"
-  output_path = "dist/view.zip"
+  output_path = "../dist/view.zip"
 }
 
 resource "aws_lambda_function" "view" {

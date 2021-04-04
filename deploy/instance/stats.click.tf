@@ -1,7 +1,7 @@
 data "archive_file" "click" {
   type = "zip"
   source_file = "../dist/stats/click.js"
-  output_path = "dist/click.zip"
+  output_path = "../dist/click.zip"
 }
 
 resource "aws_lambda_function" "click" {

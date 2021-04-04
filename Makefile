@@ -6,6 +6,7 @@ endif
 .PHONY: deploy
 
 build:
+	rm -rf deploy/dist
 	yarn
 	yarn transpile
 	$(MAKE) -C stats/lambdas build
