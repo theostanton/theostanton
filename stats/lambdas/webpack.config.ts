@@ -8,7 +8,7 @@ const config: webpack.Configuration = {
     "click": "./src/click.ts"
   },
   output: {
-    path: path.resolve(__dirname, "../..", "deploy/dist/stats"),
+    path: path.resolve("../../deploy/dist/stats"),
     libraryTarget: "commonjs",
     filename: "[name].js"
   },
