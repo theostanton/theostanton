@@ -13,6 +13,7 @@ build:
 	$(MAKE) -C site build
 
 deploy: build
+    test $(domain_prefix)
 	test $(branch)
 	$(MAKE) -C deploy/instance apply branch=$(branch)
 
