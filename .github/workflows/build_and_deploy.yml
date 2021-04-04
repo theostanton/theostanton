@@ -24,11 +24,11 @@ jobs:
         run: echo "STATS_URL=${GITHUB_HEAD_REF}-stats.theo.dev" >> $GITHUB_ENV
 
       - name: Deduce STATS_URL
-        if: github.event_name != 'pull_request' && ${{ github.ref == 'refs/heads/master' }}
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         run: echo "STATS_URL=stats.theo.dev" >> $GITHUB_ENV
 
       - name: Deduce STATS_URL
-        if: github.event_name != 'pull_request' && ${{ github.ref == 'refs/heads/staging' }}
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/staging'
         run: echo "STATS_URL=staging-stats.theo.dev" >> $GITHUB_ENV
 
       - name: Checkout
