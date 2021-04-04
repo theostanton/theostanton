@@ -6,7 +6,8 @@ resource "aws_acm_certificate" "main" {
   domain_name = var.base_url
   validation_method = "DNS"
   subject_alternative_names = [
-    "*.${var.base_url}"]
+    "*.${var.base_url}"
+  ]
 
   tags = {
     "Name":var.base_url

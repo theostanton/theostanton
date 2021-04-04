@@ -1,12 +1,22 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import { props } from "./props"
 import { Container, Title, Content, Socials } from "./styles"
-import SocialComponent from "../../components/Social"
-import JobComponent from "../../components/Job"
+import SocialComponent from "components/Social"
+import JobComponent from "components/Job"
 import PlausibleProvider from "next-plausible"
+import { Stats } from "@stats/client"
+
+async function trackHomePageView(): Promise<void> {
+  await Stats.view("Home")
+}
 
 const Home: React.FC<props> = ((props: props) => {
+
+  useEffect(() => {
+    trackHomePageView().then().catch()
+  })
+
   const { jobs, socials } = props
   return (
     <PlausibleProvider domain={"theo.dev"} enabled={true}>

@@ -53,7 +53,7 @@ resource "aws_route53_record" "site_a_record" {
 resource "aws_s3_bucket_object" "site" {
   content_type = "text/html"
   for_each = fileset("../dist/site", "**")
-  bucket = aws_s3_bucket.site.id
+  bucket = aws_s3_bucket.site.bucket
   key = each.value
   source = "../dist/site/${each.value}"
   etag = filemd5("../dist/site/${each.value}")
