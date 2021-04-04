@@ -46,7 +46,7 @@ export class Stats {
       page,
       uid: this.uid
     }
-    const url = `http://localhost:3000/view`
+    const url = `${baseUrl()}/view`
     console.log("url", url)
     await axios.post(url, request, {})
   }
@@ -57,7 +57,7 @@ export class Stats {
       target,
       uid: this.uid
     }
-    const url = `${baseUrl()}/view`
+    const url = `${baseUrl()}/click`
     await axios.post(url, request, {})
   }
 }

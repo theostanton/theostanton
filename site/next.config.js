@@ -1,5 +1,5 @@
-module.export = {
+module.exports = {
   env: {
-    STATS_URL: process.env.STATS_URL
+    STATS_URL:"https://api.theo.dev"
   }
 }

@@ -22,7 +22,7 @@ resource "aws_api_gateway_deployment" "stats" {
 
 resource "aws_api_gateway_domain_name" "stats" {
   certificate_arn = local.common.acm_certificate_arn
-  domain_name = "${local.domain_prefix}stats.${var.base_url}"
+  domain_name = "${local.domain_prefix}api.${var.base_url}"
 }
 
 resource "aws_route53_record" "stats" {
@@ -42,31 +42,3 @@ resource "aws_api_gateway_base_path_mapping" "stats" {
   domain_name = aws_api_gateway_domain_name.stats.domain_name
   stage_name = aws_api_gateway_deployment.stats.stage_name
 }
-
-//resource "aws_api_gateway_method" "root" {
-//  rest_api_id = aws_api_gateway_rest_api.tomate.id
-//  resource_id = aws_api_gateway_rest_api.tomate.root_resource_id
-//  http_method = "POST"
-//  authorization = "NONE"
-//}
-//
-//resource "aws_api_gateway_integration" "root" {
-//  rest_api_id = aws_api_gateway_rest_api.tomate.id
-//  resource_id = aws_api_gateway_rest_api.tomate.root_resource_id
-//  http_method = aws_api_gateway_method.root.http_method
-//  type = "MOCK"
-//  timeout_milliseconds = 29000
-//
-//  request_parameters = {
-//    "integration.request.header.X-Authorization" = "'static'"
-//  }
-//
-//  # Transforms the incoming XML request to JSON
-//  request_templates = {
-//    "application/xml" = <<EOF
-//{
-//   "body" : $input.json('$')
-//}
-//EOF
-//  }
-//}
