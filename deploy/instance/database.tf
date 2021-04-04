@@ -28,7 +28,7 @@ resource "aws_db_instance" "database" {
 //}
 
 resource "aws_security_group" "open" {
-  name = "theodev-open"
+  name = "theodev-open-${local.domain_suffix}"
 
   egress {
     from_port = 0
