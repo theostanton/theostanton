@@ -4,7 +4,7 @@ import React from "react"
 import { theme } from "../styles/theme"
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <html lang={"en"}>
+  return <>
   <Head>
     <title>Theo Stanton</title>
     <link rel="shortcut icon" href="/static/favicon.png" />
@@ -28,5 +28,5 @@ export default function App({ Component, pageProps }: AppProps) {
   `}</style>
 
   <Component {...pageProps} />
-  </html>
+  </>
 }

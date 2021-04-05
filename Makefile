@@ -24,7 +24,7 @@ envs:
 start:
 	docker-compose down
 	docker build -f docker/Dockerfile -t theostanton:local .
-	docker-compose up --detach
+	docker-compose up
 
 stop:
 	docker-compose down
