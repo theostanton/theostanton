@@ -6,7 +6,7 @@
   "author": "Theo <theo@theo.dev>",
   "license": "MIT",
   "scripts": {
-    "watch:all": "yarn wsrun -atm watch",
+    "watch": "yarn transpile && yarn wsrun -am  --exclude @stats/lambda watch",
     "transpile": "yarn wsrun -sm transpile"
   },
   "devDependencies": {
@@ -15,7 +15,6 @@
     "wsrun": "^5.2.4"
   },
   "workspaces": [
-    "common/*",
     "stats/*",
     "site"
   ]

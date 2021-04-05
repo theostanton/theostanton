@@ -3,7 +3,7 @@
   "name": "@stats/local",
   "license": "MIT",
   "scripts": {
-    "start": "STATS_URL=http://localhost:3000 ENV_PATH=../../.env ts-node-dev src/serve.ts"
+    "develop": "ts-node-dev src/serve.ts --watch ../*/dist"
   },
   "dependencies": {
     "@stats/controllers": "*",

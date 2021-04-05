@@ -1,0 +1,63 @@
+services:
+
+  database:
+    container_name: database
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=stats
+      - POSTGRES_USER=super
+      - POSTGRES_PASSWORD=password
+    ports:
+      - 5432:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+
+  build:
+    container_name: build
+    image: theostanton:local
+    volumes:
+      - ./node_modules:/usr/src/node_modules:delegated
+
+  watch:
+    container_name: watch
+    image: theostanton:local
+    volumes:
+      - ./:/usr/src
+    working_dir: /usr/src
+    command: yarn watch
+    depends_on:
+      - build
+
+  site:
+    container_name: site
+    image: theostanton:local
+    environment:
+      - STATS_URL=http://localhost:3000
+    volumes:
+      - ./:/usr/src/:cached
+    working_dir: /usr/src/site
+    command: yarn develop
+    ports:
+      - 8888:8888
+    depends_on:
+      - watch
+      - api
+
+  api:
+    container_name: api
+    image: theostanton:local
+    environment:
+      - DATABASE_URL=postgresql://super:password@database:5432/stats
+    volumes:
+      - ./:/usr/src/:cached
+    working_dir: /usr/src/stats/local
+    command: yarn develop
+    ports:
+      - 3000:3000
+    depends_on:
+      - watch
+      - database
+
+volumes:
+  db_data:
