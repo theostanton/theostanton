@@ -5,7 +5,7 @@ resource "random_password" "database" {
 
 resource "aws_db_instance" "database" {
   identifier = "theodev${local.domain_suffix}"
-  instance_class = "db.t2.micro"
+  instance_class = "db.t3.micro"
   apply_immediately = true
   allocated_storage = 10
   engine = "postgres"
