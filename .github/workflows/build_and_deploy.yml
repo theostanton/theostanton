@@ -47,7 +47,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn --network-timeout 1000000
+        run: yarn
 
       - name: Transpile
         run: yarn transpile
