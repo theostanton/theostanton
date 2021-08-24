@@ -9,7 +9,7 @@
     "transpile": "tsc"
   },
   "dependencies": {
-    "@fingerprintjs/fingerprintjs": "^3.3.0",
+    "@fingerprintjs/fingerprintjs": "^3.0.7",
     "@stats/model": "*",
     "axios": "^0.21.4"
   },
