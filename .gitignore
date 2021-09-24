@@ -1,5 +1,6 @@
 .env
 dist
+**.auto.tfvars
 
 # dependencies
 node_modules
