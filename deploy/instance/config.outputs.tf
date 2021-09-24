@@ -12,8 +12,10 @@ output "stats_url" {
 
 output "database_url" {
   value = local.variables.DATABASE_URL
+  sensitive = true
 }
 
 output "envs" {
   value = local.envs
+  sensitive = true
 }
