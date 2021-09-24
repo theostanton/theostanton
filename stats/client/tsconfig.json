@@ -4,7 +4,10 @@
     "composite": false,
     "baseUrl": "./src",
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "lib": [
+      "dom"
+    ]
   },
   "include": [
     "src/**/*"

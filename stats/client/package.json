@@ -13,5 +13,7 @@
     "@stats/model": "*",
     "axios": "^0.21.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/fingerprintjs": "^0.5.28"
+  }
 }

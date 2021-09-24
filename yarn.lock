@@ -349,6 +349,11 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/fingerprintjs@^0.5.28":
+  version "0.5.28"
+  resolved "https://registry.yarnpkg.com/@types/fingerprintjs/-/fingerprintjs-0.5.28.tgz#9d8718677add858b7ffab6f01b2e2eeb390eaa50"
+  integrity sha1-nYcYZ3rdhYt/+rbwGy4u6zkOqlA=
+
 "@types/hoist-non-react-statics@*":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
