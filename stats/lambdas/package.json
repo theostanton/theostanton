@@ -7,16 +7,16 @@
     "build": "webpack"
   },
   "dependencies": {
-    "@stats/model": "*",
     "@stats/controllers": "*",
+    "@stats/model": "*",
     "aws-lambda": "^1.0.6",
-    "aws-sdk": "^2.874.0",
-    "ts-node-dev": "^1.1.6",
-    "ts-loader": "^8.1.0",
-    "webpack": "^5.28.0",
-    "webpack-cli": "^4.6.0"
+    "aws-sdk": "^2.995.0",
+    "ts-loader": "^9.2.6",
+    "ts-node-dev": "^1.1.8",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.73"
+    "@types/aws-lambda": "^8.10.83"
   }
 }
