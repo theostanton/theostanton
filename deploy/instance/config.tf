@@ -7,21 +7,8 @@ terraform {
 }
 
 provider "aws" {
-  profile = "default"
+  profile = "theo.dev"
   region = "us-east-1"
-}
-
-terraform {
-  required_providers {
-    notion = {
-      source = "theostanton/notion"
-      version = "0.2.1"
-    }
-  }
-}
-
-provider "notion" {
-  token = var.notion_token
 }
 
 data "terraform_remote_state" "common" {

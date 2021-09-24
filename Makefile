@@ -7,11 +7,12 @@ init:
 	cd deploy/instance && terraform init && terraform validate
 
 build:
+	test $(branch)
 	rm -rf deploy/dist
 	yarn
 	yarn transpile
 	$(MAKE) -C stats/lambdas build
-	$(MAKE) -C site build
+	export STATS_URL=https://$(branch)-api.theo.dev && $(MAKE) -C site build
 
 deploy: build
 	test $(branch)

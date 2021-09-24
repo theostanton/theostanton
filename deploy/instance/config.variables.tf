@@ -8,7 +8,7 @@ variable "notion_token" {
 }
 
 variable "notion_parent_page" {
-
+  type = string
 }
 
 variable "branch" {

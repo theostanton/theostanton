@@ -1,7 +1,20 @@
+terraform {
+  required_providers {
+    notion = {
+      source  = "theostanton/notion"
+      version = "0.2.1"
+    }
+  }
+}
+
+provider "notion" {
+  token = var.token
+}
+
 # Sessions
 resource "notion_database" "sessions" {
-  title              = "${var.base_url} - Sessions"
-  parent             = var.notion_parent_page
+  title              = "${var.label} - Sessions"
+  parent             = var.parent_page
   title_column_title = "ID"
 }
 
@@ -18,8 +31,8 @@ resource "notion_database_property_rich_text" "sessions_user" {
 
 # Events
 resource "notion_database" "events" {
-  title              = "${var.base_url} - Events"
-  parent             = var.notion_parent_page
+  title              = "${var.label} - Events"
+  parent             = var.parent_page
   title_column_title = "Event"
 }
 
