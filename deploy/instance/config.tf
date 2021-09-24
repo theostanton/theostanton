@@ -11,9 +11,21 @@ provider "aws" {
   region = "us-east-1"
 }
 
+terraform {
+  required_providers {
+    notion = {
+      source = "theostanton/notion"
+      version = "0.2.1"
+    }
+  }
+}
+
+provider "notion" {
+  token = var.notion_token
+}
+
 data "terraform_remote_state" "common" {
   backend = "s3"
-
   config = {
     bucket = "theo.dev-state"
     key = "common"

@@ -1,0 +1,7 @@
+make: Entering directory `/Users/theo/Code/theostanton'
+yarn
+yarn transpile
+cd deploy/shared && terraform init && terraform validate
+cd deploy/instance && terraform init && terraform validate
+make: Leaving directory `/Users/theo/Code/theostanton'
+ 
