@@ -3,6 +3,10 @@ variable "base_url" {
   type = string
 }
 
+variable "notion_token" {
+  type = string
+}
+
 variable "branch" {
   type = string
 }

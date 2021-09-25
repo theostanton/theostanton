@@ -21,7 +21,9 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "lib": [
-      "ES2020.Promise"
+      "ES2020.Promise",
+      "es6",
+      "dom"
     ]
   }
 }

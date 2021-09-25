@@ -41,5 +41,5 @@ app.post("/view", viewRoute)
 app.post("/click", clickRoute)
 
 app.listen(port, () => {
-  return console.log(`server is listening on ${port}`)
+  console.log(`server is listening on ${port}`)
 })

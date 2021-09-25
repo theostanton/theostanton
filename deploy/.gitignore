@@ -1,3 +1,4 @@
 dist
 .terraform
+**auto.tfvars
 .terraform.lock.hcl

@@ -1,4 +1,4 @@
-import { database, User } from "@stats/model"
+import { database, User } from "@stats/database"
 
 export async function upsert(uid: string): Promise<User> {
   const upsertQuery = `

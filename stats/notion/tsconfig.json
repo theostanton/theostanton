@@ -4,8 +4,5 @@
     "composite": false,
     "baseUrl": "./src",
     "outDir": "./dist"
-  },
-  "include": [
-    "src/**/*"
-  ]
+  }
 }

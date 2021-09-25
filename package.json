@@ -1,21 +1,21 @@
 {
   "name": "theo.dev",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": "https://github.com/theostanton/theostanton.git",
   "author": "Theo <theo@theo.dev>",
   "license": "MIT",
   "scripts": {
-    "watch:all": "yarn wsrun -atm watch",
+    "watch": "yarn transpile && yarn wsrun -am  --exclude @stats/lambda watch",
     "transpile": "yarn wsrun -sm transpile"
   },
   "devDependencies": {
     "@types/node": "^16.9.6",
+    "@types/react": "^17.0.22",
     "typescript": "^4.4.3",
     "wsrun": "^5.2.4"
   },
   "workspaces": [
-    "common/*",
     "stats/*",
     "site"
   ]

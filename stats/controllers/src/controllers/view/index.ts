@@ -1,23 +1,39 @@
-import * as sessions from "../../services/sessions"
-import * as views from "../../services/views"
-import { DirtyView, view } from "@stats/model"
+import {view} from "@stats/model"
+import {Session, sessions, Event, events} from "@stats/notion";
+import * as process from "process";
+import {v4 as uuid} from 'uuid'
 
 export async function invoke(request: view.Request): Promise<view.Response> {
-  const { id: sessionId } = await sessions.getForUser(request.uid)
 
-  const dirty: DirtyView = {
-    session: sessionId,
-    page: request.page,
-    timestamp: request.timestamp
-  }
-  const view = await views.insert(dirty)
-  if (!view) {
-    return {
-      success: false
+    const existingSession = await sessions.forUser(process.env.NOTION_SESSIONS_DATABASE_ID, request.uid)
+
+    let sessionPageId: string
+    if (existingSession == null) {
+        const newSession: Session = {
+            id: `session_${uuid()}`,
+            user: request.uid
+        }
+        sessionPageId = await sessions.write(process.env.NOTION_SESSIONS_DATABASE_ID, newSession)
+    } else {
+        sessionPageId = existingSession.pageId
     }
-  }
 
-  return {
-    success: true
-  }
+
+    const event: Event = {
+        name: `View ${request.page}`,
+        date: new Date(),
+        session: sessionPageId
+    }
+
+    const eventPageId = await events.write(process.env.NOTION_EVENTS_DATABASE_ID, event)
+
+
+    if (!eventPageId) {
+        return {
+            success: false
+        }
+    }
+    return {
+        success: true
+    }
 }
