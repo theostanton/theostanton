@@ -5,6 +5,7 @@ init:
 	yarn transpile
 	cd deploy/shared && terraform init && terraform validate
 	cd deploy/instance && terraform init && terraform validate
+	cd stats/notion/deploy && terraform init && terraform validate
 
 build:
 	test $(branch)

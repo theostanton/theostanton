@@ -1,7 +1,6 @@
 .PHONY: apply invalidate
 
 apply:
-	terraform init -upgrade
 	terraform validate
 	test $(branch)
 	terraform workspace select $(branch) || terraform workspace new $(branch)
