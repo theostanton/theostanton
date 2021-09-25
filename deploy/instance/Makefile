@@ -1,9 +1,11 @@
 .PHONY: apply invalidate
 
 apply:
+	terraform init
 	terraform validate
 	test $(branch)
 	terraform workspace select $(branch) || terraform workspace new $(branch)
+	terraform init
 	terraform apply -auto-approve -var="branch=$(branch)"
 
 destroy:
