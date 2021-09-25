@@ -1,4 +1,3 @@
-
 terraform {
   required_providers {
     notion = {
@@ -9,7 +8,7 @@ terraform {
 }
 
 provider "notion" {
-  token =var.token
+  token = var.token
 }
 
 data "notion_page" "analytics" {
@@ -37,6 +36,14 @@ resource "notion_database_property_relation" "sessions_to_events" {
 resource "notion_database_property_rich_text" "sessions_user" {
   database = notion_database.sessions.id
   name     = "User"
+}
+
+resource "notion_database_property_rollup" "sessions_start" {
+  database          = notion_database.sessions.id
+  relation_property = notion_database_property_relation.sessions_to_events.name
+  rollup_property   = notion_database_property_date.events_date.name
+  name              = "Start"
+  function          = "show_original"
 }
 
 # Events
