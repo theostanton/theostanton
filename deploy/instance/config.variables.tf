@@ -7,10 +7,6 @@ variable "notion_token" {
   type = string
 }
 
-variable "notion_parent_page" {
-  type = string
-}
-
 variable "branch" {
   type = string
 }
