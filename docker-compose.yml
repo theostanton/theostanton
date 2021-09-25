@@ -48,7 +48,8 @@ services:
     container_name: api
     image: theostanton:local
     environment:
-      - DATABASE_URL=postgresql://super:password@database:5432/stats
+      - NOTION_SESSIONS_DATABASE_ID=postgresql://super:password@database:5432/stats
+      - NOTION_EVENTS_DATABASE_ID=postgresql://super:password@database:5432/stats
     volumes:
       - ./:/usr/src/:cached
     working_dir: /usr/src/stats/local

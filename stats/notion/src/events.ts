@@ -1,15 +1,16 @@
 import client from "./client";
-import {InputPropertyValueMap} from "@notionhq/client/build/src/api-endpoints";
 
 export type Event = {
     name: string
+    session: string
     date: Date
 }
 
+
 export namespace events {
 
-    interface Properties extends InputPropertyValueMap {
-        Name: {
+    type Properties = {
+        Event: {
             type: "title",
             title: [{
                 type: "text",
@@ -23,12 +24,18 @@ export namespace events {
             date: {
                 start: string
             }
+        },
+        "Related to Sessions (Events)": {
+            type: "relation",
+            relation: [{
+                id: string
+            }]
         }
     }
 
     function mapEventToProperties(event: Event): Properties {
         return {
-            Name: {
+            Event: {
                 type: "title",
                 title: [{type: "text", text: {content: event.name}}],
             },
@@ -37,6 +44,12 @@ export namespace events {
                 date: {
                     start: event.date.toISOString()
                 }
+            },
+            "Related to Sessions (Events)": {
+                type: "relation",
+                relation: [{
+                    id: event.session
+                }]
             }
         }
     }
@@ -58,11 +71,22 @@ export namespace events {
             page_id: pageId
         })
 
-        const properties: Properties = response.properties as Properties
+        const properties: Properties = response.properties as unknown as Properties
         return {
-            name: properties.Name.title[0].text.content,
-            date: new Date(properties.Date.date.start)
+            name: properties.Event.title[0].text.content,
+            date: new Date(properties.Date.date.start),
+            session: properties["Related to Sessions (Events)"].relation[0].id
         }
+    }
+
+    export async function archive(pageId: string): Promise<boolean> {
+        const response = await client.pages.update({
+            page_id: pageId,
+            archived: true,
+            properties: {},
+        })
+
+        return response.archived
     }
 
 }

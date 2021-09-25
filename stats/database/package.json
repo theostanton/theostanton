@@ -1,0 +1,20 @@
+{
+  "name": "@stats/database",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "watch": "tsc -w",
+    "transpile": "tsc"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "pg": "^8.7.1",
+    "pg-native": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/pg": "^8.6.1"
+  }
+}

@@ -1,6 +1,5 @@
 module "notion" {
-  source      = "./notion"
-  label       = var.base_url
-  parent_page = var.notion_parent_page
-  token       = var.notion_token
+  source = "./notion"
+  label  = local.domain_name
+  token  = var.notion_token
 }

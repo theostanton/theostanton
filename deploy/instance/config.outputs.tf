@@ -10,12 +10,11 @@ output "stats_url" {
   value = aws_api_gateway_domain_name.stats.domain_name
 }
 
-output "database_url" {
-  value = local.variables.DATABASE_URL
-  sensitive = true
+output "analytics_page_url" {
+  value = module.notion.page_url
 }
 
 output "envs" {
-  value = local.envs
+  value     = local.envs
   sensitive = true
 }

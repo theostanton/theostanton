@@ -9,7 +9,7 @@
     "transpile": "tsc"
   },
   "dependencies": {
-    "@notionhq/client": "^0.3.2",
+    "@notionhq/client": "^0.4.0",
     "dotenv": "^10.0.0"
   },
   "devDependencies": {

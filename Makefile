@@ -1,4 +1,4 @@
-.PHONY: deploy init build envs
+.PHONY: deploy init build envs deploy_only
 
 init:
 	yarn
@@ -15,6 +15,10 @@ build:
 	export STATS_URL=https://$(branch)-api.theo.dev && $(MAKE) -C site build
 
 deploy: build
+	test $(branch)
+	$(MAKE) -C deploy/instance apply branch=$(branch)
+
+deploy_only:
 	test $(branch)
 	$(MAKE) -C deploy/instance apply branch=$(branch)
 

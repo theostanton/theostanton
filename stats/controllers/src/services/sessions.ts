@@ -1,4 +1,4 @@
-import {database, Session} from "@stats/model"
+import {database, Session} from "@stats/database"
 import * as users from "./users"
 
 export async function getForUser(uid: string): Promise<Session> {
