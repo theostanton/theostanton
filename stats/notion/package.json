@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "watch": "tsc -w",
-    "transpile": "tsc"
+    "transpile": "tsc",
+    "test": "jest"
   },
   "dependencies": {
     "@notionhq/client": "^0.4.0",

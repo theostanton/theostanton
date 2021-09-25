@@ -6,15 +6,6 @@ terraform {
   }
 }
 
-terraform {
-  required_providers {
-    notion = {
-      source  = "theostanton/notion"
-      version = "0.3.2"
-    }
-  }
-}
-
 provider "aws" {
   profile = "theo.dev"
   region  = "us-east-1"

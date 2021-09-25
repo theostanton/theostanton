@@ -105,7 +105,7 @@ jobs:
           path: deploy/dist/site
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -upgrade
         working-directory: deploy/instance
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
