@@ -16,6 +16,7 @@ beforeAll(async () => {
     const sessionsDatabaseId = process.env.NOTION_SESSIONS_DATABASE_ID
     const session: Session = {
         user: "Some user",
+        date: MOCK_DATE,
         id: MOCK_SESSION_ID
     }
 

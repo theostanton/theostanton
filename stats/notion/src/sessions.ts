@@ -3,6 +3,7 @@ import client from "./client";
 export type Session = {
     pageId?: string
     id: string
+    date: Date
     user: string
 }
 
@@ -26,7 +27,13 @@ export namespace sessions {
                     content: string
                 }
             }]
-        }
+        },
+        Date: {
+            type: "date",
+            date: {
+                start: string
+            }
+        },
     }
 
     function mapSessionToProperties(session: Session): Properties {
@@ -40,6 +47,12 @@ export namespace sessions {
                 rich_text: [
                     {type: "text", text: {content: session.user}}
                 ],
+            },
+            Date: {
+                type: "date",
+                date: {
+                    start: session.date.toISOString()
+                }
             },
         }
     }
@@ -65,6 +78,7 @@ export namespace sessions {
         return {
             pageId,
             id: properties.ID.title[0].text.content,
+            date: new Date(properties.Date.date.start),
             user: properties.User.rich_text[0].text.content
         }
     }
@@ -91,6 +105,7 @@ export namespace sessions {
         return {
             pageId: results[0].id,
             id: properties.ID.title[0].text.content,
+            date: new Date(properties.Date.date.start),
             user: properties.User.rich_text[0].text.content
         }
     }

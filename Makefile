@@ -23,6 +23,10 @@ deploy_only:
 	test $(branch)
 	$(MAKE) -C deploy/instance apply branch=$(branch)
 
+destroy:
+	test $(branch)
+	$(MAKE) -C deploy/instance destroy branch=$(branch)
+
 envs:
 	test $(branch)
 	$(shell echo $(MAKE) -C deploy/instance output branch=staging output=envs) > .env

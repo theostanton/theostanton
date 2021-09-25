@@ -38,6 +38,11 @@ resource "notion_database_property_rich_text" "sessions_user" {
   name     = "User"
 }
 
+resource "notion_database_property_date" "sessions_date" {
+  database = notion_database.events.id
+  name     = "Date"
+}
+
 resource "notion_database_property_rollup" "sessions_start" {
   database          = notion_database.sessions.id
   relation_property = notion_database_property_relation.sessions_to_events.name

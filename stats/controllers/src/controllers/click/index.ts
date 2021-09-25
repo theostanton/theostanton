@@ -12,6 +12,7 @@ export async function invoke(request: click.Request): Promise<click.Response> {
     if (existingSession == null) {
         const newSession: Session = {
             id: `session_${uuid()}`,
+            date: new Date(),
             user: request.uid
         }
         sessionPageId = await sessions.write(process.env.NOTION_SESSIONS_DATABASE_ID, newSession)
