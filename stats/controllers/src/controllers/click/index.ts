@@ -13,7 +13,8 @@ export async function invoke(request: click.Request): Promise<click.Response> {
             date: new Date(),
             user: request.uid
         }
-        sessionPageId = await sessions.write(process.env.NOTION_SESSIONS_DATABASE_ID, newSession)
+        const newSession = await sessions.write(process.env.NOTION_SESSIONS_DATABASE_ID, newSession)
+        sessionPageId = newSession.pageId
     } else {
         sessionPageId = existingSession.pageId
     }
