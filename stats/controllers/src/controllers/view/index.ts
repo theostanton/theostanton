@@ -8,12 +8,12 @@ export async function invoke(request: view.Request): Promise<view.Response> {
 
     let sessionPageId: string
     if (existingSession == null) {
-        const newSession: Session = {
+        const session: Session = {
             id: id("session"),
             date: new Date(),
             user: request.uid
         }
-        const newSession = await sessions.write(process.env.NOTION_SESSIONS_DATABASE_ID, newSession)
+        const newSession = await sessions.write(process.env.NOTION_SESSIONS_DATABASE_ID, session)
         sessionPageId = newSession.pageId
     } else {
         sessionPageId = existingSession.pageId
