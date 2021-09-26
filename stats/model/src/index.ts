@@ -3,3 +3,4 @@ require("dotenv").config({
 })
 
 export {view, click} from "./controllers"
+export {id} from "./utils"

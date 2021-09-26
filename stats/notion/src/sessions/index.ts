@@ -1,4 +1,5 @@
-import client from "./client";
+import client from "../client";
+import {GetPageResponse} from "@notionhq/client/build/src/api-endpoints";
 
 export type Session = {
     pageId?: string
@@ -6,6 +7,8 @@ export type Session = {
     date: Date
     user: string
 }
+
+const MAX_SESSION_GAP_MS = 5 * 60 * 1_000
 
 export namespace sessions {
 
@@ -57,7 +60,17 @@ export namespace sessions {
         }
     }
 
-    export async function write(databaseId: string, session: Session): Promise<string> {
+    function mapResponseToSession(response: GetPageResponse): Session {
+        const properties: Properties = response.properties as unknown as Properties
+        return {
+            pageId: response.id,
+            id: properties.ID.title[0].text.content,
+            date: new Date(properties.Date.date.start),
+            user: properties.User.rich_text[0].text.content
+        }
+    }
+
+    export async function write(databaseId: string, session: Session): Promise<Session> {
         const properties: Properties = mapSessionToProperties(session)
         const response = await client.pages.create({
             parent: {
@@ -66,7 +79,8 @@ export namespace sessions {
             properties
         })
 
-        return response.id
+        session.pageId = response.id
+        return session
     }
 
     export async function read(pageId: string): Promise<Session> {
@@ -74,13 +88,7 @@ export namespace sessions {
             page_id: pageId
         })
 
-        const properties: Properties = response.properties as unknown as Properties
-        return {
-            pageId,
-            id: properties.ID.title[0].text.content,
-            date: new Date(properties.Date.date.start),
-            user: properties.User.rich_text[0].text.content
-        }
+        return mapResponseToSession(response)
     }
 
     export async function forUser(databaseId: string, userId: string): Promise<Session | null> {
@@ -94,20 +102,24 @@ export namespace sessions {
                 property: "User",
                 rich_text: {
                     equals: userId
-                }
+                },
             }
         })
         const results = queryResponse.results
         if (results.length == 0) {
             return null
         }
-        const properties: Properties = results[0].properties as unknown as Properties
-        return {
-            pageId: results[0].id,
-            id: properties.ID.title[0].text.content,
-            date: new Date(properties.Date.date.start),
-            user: properties.User.rich_text[0].text.content
+
+        const latestResult = results[0]
+
+        const properties = mapResponseToSession(latestResult)
+        const msSince = new Date().getTime() - properties.date.getTime()
+
+        if (msSince > MAX_SESSION_GAP_MS) {
+            return null
         }
+
+        return mapResponseToSession(results[0])
     }
 
     export async function archive(pageId: string): Promise<boolean> {

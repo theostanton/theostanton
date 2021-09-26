@@ -1,4 +1,5 @@
-import { database, User } from "@stats/database"
+import {query} from "../database";
+import {User} from "../model";
 
 export async function upsert(uid: string): Promise<User> {
   const upsertQuery = `
@@ -8,7 +9,7 @@ export async function upsert(uid: string): Promise<User> {
           do update SET id=$1
       returning *
   `
-  const [user] = await database.query<User>(upsertQuery, uid)
+  const [user] = await query<User>(upsertQuery, uid)
   if (!user) {
     console.error("couldnt upsert user")
     process.exit(1)

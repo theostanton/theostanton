@@ -1,7 +1,6 @@
-import {view} from "@stats/model"
+import {id, view} from "@stats/model"
 import {Session, sessions, Event, events} from "@stats/notion";
 import * as process from "process";
-import {v4 as uuid} from 'uuid'
 
 export async function invoke(request: view.Request): Promise<view.Response> {
 
@@ -10,7 +9,7 @@ export async function invoke(request: view.Request): Promise<view.Response> {
     let sessionPageId: string
     if (existingSession == null) {
         const newSession: Session = {
-            id: `session_${uuid()}`,
+            id: id("session"),
             date: new Date(),
             user: request.uid
         }

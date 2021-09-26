@@ -39,7 +39,7 @@ resource "notion_database_property_rich_text" "sessions_user" {
 }
 
 resource "notion_database_property_date" "sessions_date" {
-  database = notion_database.events.id
+  database = notion_database.sessions.id
   name     = "Date"
 }
 

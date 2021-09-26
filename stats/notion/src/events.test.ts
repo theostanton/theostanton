@@ -20,7 +20,8 @@ beforeAll(async () => {
         id: MOCK_SESSION_ID
     }
 
-    sessionPageId = await sessions.write(sessionsDatabaseId, session)
+    const storedSession = await sessions.write(sessionsDatabaseId, session)
+    sessionPageId = storedSession.pageId
 
     const eventsDatabaseId = process.env.NOTION_EVENTS_DATABASE_ID
     const event: Event = {

@@ -1,7 +1,7 @@
 .PHONY: deploy
 
 spinup:
-	terraform  -chdir=deploy init -upgrade
+	terraform -chdir=deploy init -upgrade
 	terraform -chdir=deploy apply  -auto-approve
 
 run_tests:

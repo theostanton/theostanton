@@ -1,38 +1,17 @@
-import {database, Session} from "@stats/database"
-import * as users from "./users"
+import {Session, sessions} from "@stats/notion";
+import process from "process";
+import {id} from "@stats/model";
 
-export async function getForUser(uid: string): Promise<Session> {
-
-    await users.upsert(uid)
-
-    const latestQuery = `
-        with latest as (
-            select max(id) as session
-            from sessions
-            where "user" = $1
-        )
-        select l.session as id
-        from latest as l
-                 inner join views as v
-                            on l.session = v.session
-                                and v.timestamp > now() - interval '5 minutes'
-        union
-        select l.session as id
-        from latest as l
-                 inner join clicks as c
-                            on l.session = c.session
-                                and c.timestamp > now() - interval '5 minutes'
-        limit 1
-    `
-
-    const [currentSession] = await database.query<Session>(latestQuery, uid)
-
-    if (currentSession) {
-        return currentSession
+export async function assureSession(uid: string): Promise<string> {
+    const existingSession = await sessions.forUser(process.env.NOTION_SESSIONS_DATABASE_ID, uid)
+    if (existingSession == null) {
+        const newSession: Session = {
+            id: id("session"),
+            date: new Date(),
+            user: uid
+        }
+        return await sessions.write(process.env.NOTION_SESSIONS_DATABASE_ID, newSession)
+    } else {
+        return existingSession.pageId
     }
-    const insertQuery = `insert into sessions ("user")
-                         values ($1)
-                         returning *`
-    const [newSession] = await database.query<Session>(insertQuery, uid)
-    return newSession
 }
