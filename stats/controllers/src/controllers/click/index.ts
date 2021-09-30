@@ -1,6 +1,6 @@
 import {click, id} from "@stats/model"
-import {Session, sessions, Event, events} from "@stats/notion";
 import * as process from "process";
+import {events, Event, Session, sessions} from "@stats/notion";
 
 export async function invoke(request: click.Request): Promise<click.Response> {
 
