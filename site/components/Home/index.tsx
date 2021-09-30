@@ -20,7 +20,6 @@ const Home: React.FC<props> = ((props: props) => {
   const { jobs, socials } = props
   return (
     <PlausibleProvider domain={"theo.dev"}
-                       trackOutboundLinks={true}
                        customDomain={"https://stats.theo.dev"}
                        enabled={true}>
       <Container>
