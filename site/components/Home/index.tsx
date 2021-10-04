@@ -19,9 +19,7 @@ const Home: React.FC<props> = ((props: props) => {
 
   const { jobs, socials } = props
   return (
-    <PlausibleProvider domain={"theo.dev"}
-                       customDomain={"https://stats.theo.dev"}
-                       enabled={true}>
+    <PlausibleProvider domain={"theo.dev"} enabled={true}>
       <Container>
         <Title>Theo Stanton</Title>
         <Content>
