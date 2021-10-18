@@ -1,15 +1,15 @@
-import React, { ReactElement } from "react"
+import React, {ReactElement} from "react"
 import styled from "styled-components"
-import { theme, Theme } from "../styles/theme"
-import { usePlausible } from "next-plausible"
+import {theme, Theme} from "../styles/theme"
+import {Stats} from "@stats/client";
 
 export type Props = {
-  title: string
-  company: string
-  companyUrl?: string
-  description?: string
-  period: string
-  location: "left" | "right"
+    title: string
+    company: string
+    companyUrl?: string
+    description?: string
+    period: string
+    location: "left" | "right"
 }
 
 type LocationProps = Pick<Props, "location">
@@ -88,32 +88,32 @@ const Details = styled.div<LocationProps>`
 `
 
 function Company(props: Props): ReactElement {
-  const { company, companyUrl } = props
-  const plausible = usePlausible()
-  if (companyUrl) {
-    const chevron = "›"
-    return <CompanyContainer rel="noopener" href={companyUrl} target="_blank" onClick={() => {
-      plausible("View job", { props: { company } })
-    }
-    }>
-      <CompanyButton {...props}>{company} {chevron}</CompanyButton>
-      </CompanyContainer>
+    const {company, companyUrl} = props
+    if (companyUrl) {
+        const chevron = "›"
+        return <CompanyContainer rel="noopener" href={companyUrl} target="_blank"
+                                 onClick={async () => {
+                                     await Stats.click(company)
+                                 }
+                                 }>
+            <CompanyButton {...props}>{company} {chevron}</CompanyButton>
+        </CompanyContainer>
     } else {
-    return <CompanyText {...props}>{company}</CompanyText>
-  }
+        return <CompanyText {...props}>{company}</CompanyText>
+    }
 }
 
 const JobComponent: React.FC<Props> = ((props: Props) => {
-  return <Container>
-    <TitleContainer location={props.location}>
-      <Title>{props.title}</Title>
-    </TitleContainer>
-    <Details location={props.location}>
-      <Company {...props} />
-      {props.description && <Description>{props.description}</Description>}
-      <Period>{props.period}</Period>
-    </Details>
-  </Container>
+    return <Container>
+        <TitleContainer location={props.location}>
+            <Title>{props.title}</Title>
+        </TitleContainer>
+        <Details location={props.location}>
+            <Company {...props} />
+            {props.description && <Description>{props.description}</Description>}
+            <Period>{props.period}</Period>
+        </Details>
+    </Container>
 })
 
 export default JobComponent

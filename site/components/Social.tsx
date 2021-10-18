@@ -1,12 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { theme } from "../styles/theme"
-import { usePlausible } from "next-plausible"
-import { Stats } from "@stats/client"
+import {theme} from "../styles/theme"
+import {Stats} from "@stats/client"
 
 export type Props = {
-  title: string
-  url: string
+    title: string
+    url: string
 }
 
 const Container = styled.a`
@@ -26,12 +25,11 @@ const Container = styled.a`
 
 export default class SocialComponent extends React.Component<Props> {
 
-  render() {
-    const plausible = usePlausible()
-    return <Container rel="noopener" href={this.props.url} onClick={async () => {
-      plausible("View social", { props: { social: this.props.title } })
-      await Stats.click(this.props.title)
+    render() {
+        return <Container rel="noopener" href={this.props.url}
+                          onClick={async () => {
+                              await Stats.click(this.props.title)
+                          }
+                          }>{this.props.title}</Container>
     }
-    }>{this.props.title}</Container>
-  }
 }
