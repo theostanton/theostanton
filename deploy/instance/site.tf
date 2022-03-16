@@ -1,25 +1,48 @@
 resource "aws_s3_bucket" "site" {
   bucket = local.domain_name
-  acl = "public-read"
+}
+
+resource "aws_s3_bucket_policy" "site" {
+  bucket = aws_s3_bucket.site.bucket
+  policy = data.aws_iam_policy_document.site.json
+}
+
+resource "aws_s3_bucket_acl" "site" {
+  bucket = aws_s3_bucket.site.bucket
+  acl    = "public-read"
+}
+
+resource "aws_s3_bucket_cors_configuration" "site" {
+  bucket = aws_s3_bucket.site.bucket
 
   cors_rule {
     allowed_headers = [
-      "*"]
+      "*"
+    ]
     allowed_methods = [
       "PUT",
-      "POST"]
+      "POST"
+    ]
     allowed_origins = [
-      "*"]
+      "*"
+    ]
     expose_headers = [
-      "ETag"]
+      "ETag"
+    ]
     max_age_seconds = 3000
   }
+}
 
-  policy = data.aws_iam_policy_document.site.json
+resource "aws_s3_bucket_website_configuration" "site" {
+  bucket = aws_s3_bucket.site.bucket
 
-  website {
-    index_document = "index.html"
-    error_document = "index.html"
+
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "index.html"
   }
 }
 
@@ -30,7 +53,8 @@ data "aws_iam_policy_document" "site" {
     ]
     principals {
       identifiers = [
-        "*"]
+        "*"
+      ]
       type = "AWS"
     }
     resources = [
@@ -41,11 +65,11 @@ data "aws_iam_policy_document" "site" {
 
 resource "aws_route53_record" "site_a_record" {
   zone_id = local.common.zone_id
-  name = local.domain_name
-  type = "A"
+  name    = local.domain_name
+  type    = "A"
   alias {
-    name = aws_cloudfront_distribution.main.domain_name
-    zone_id = aws_cloudfront_distribution.main.hosted_zone_id
+    name                   = aws_cloudfront_distribution.main.domain_name
+    zone_id                = aws_cloudfront_distribution.main.hosted_zone_id
     evaluate_target_health = false
   }
 }
@@ -56,11 +80,11 @@ resource "aws_route53_record" "site_a_record" {
 //  source_dir = "../dist/site"
 //}
 
-resource "aws_s3_bucket_object" "site" {
+resource "aws_s3_object" "site" {
   content_type = "text/html"
-  for_each = fileset("../dist/site", "**")
-  bucket = aws_s3_bucket.site.bucket
-  key = each.value
-  source = "../dist/site/${each.value}"
-  etag = filemd5("../dist/site/${each.value}")
+  for_each     = fileset("../dist/site", "**")
+  bucket       = aws_s3_bucket.site.bucket
+  key          = each.value
+  source       = "../dist/site/${each.value}"
+  etag         = filemd5("../dist/site/${each.value}")
 }
