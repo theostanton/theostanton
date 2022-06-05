@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import {theme} from "../styles/theme"
-import {Stats} from "@stats/client"
 
 export type Props = {
     title: string
@@ -28,7 +27,6 @@ export default class SocialComponent extends React.Component<Props> {
     render() {
         return <Container rel="noopener" href={this.props.url}
                           onClick={async () => {
-                              await Stats.click(this.props.title)
                           }
                           }>{this.props.title}</Container>
     }

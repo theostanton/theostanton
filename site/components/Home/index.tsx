@@ -4,10 +4,8 @@ import {props} from "./props"
 import {Container, Title, Content, Socials} from "./styles"
 import SocialComponent from "components/Social"
 import JobComponent from "components/Job"
-import {Stats} from "@stats/client"
 
 async function trackHomePageView(): Promise<void> {
-    await Stats.view("Home")
 }
 
 const Home: React.FC<props> = ((props: props) => {

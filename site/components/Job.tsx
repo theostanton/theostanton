@@ -1,7 +1,6 @@
 import React, {ReactElement} from "react"
 import styled from "styled-components"
 import {theme, Theme} from "../styles/theme"
-import {Stats} from "@stats/client";
 
 export type Props = {
     title: string
@@ -93,7 +92,6 @@ function Company(props: Props): ReactElement {
         const chevron = "›"
         return <CompanyContainer rel="noopener" href={companyUrl} target="_blank"
                                  onClick={async () => {
-                                     await Stats.click(company)
                                  }
                                  }>
             <CompanyButton {...props}>{company} {chevron}</CompanyButton>
