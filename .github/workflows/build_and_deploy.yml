@@ -60,12 +60,12 @@ jobs:
         run: make build
         working-directory: stats/lambdas
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: stats
           path: deploy/dist/stats
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: site
           path: deploy/dist/site
