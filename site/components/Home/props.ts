@@ -10,12 +10,18 @@ export type props = {
 export const getStaticProps: GetStaticProps<props> = async context => {
 
   const props: props = {
-    jobs: [
+    jobs: [ 
+      {
+        title: "Senior Engineering Manager",
+        company: "Strava",
+        companyUrl: "https://strava.com",
+        period: "January 2023 - Present"
+      },
       {
         title: "Head of Mobile",
         company: "FATMAP",
         companyUrl: "https://fatmap.com",
-        period: "January 2022 - Present"
+        period: "January 2022 - December 2022"
       },
       {
         title: "VP of Engineering",
@@ -36,7 +42,7 @@ export const getStaticProps: GetStaticProps<props> = async context => {
         period: "Oct 2016 - Mar 2018"
       },
       {
-        title: "Head of\nProduct",
+        title: "Head of\nMobile",
         company: "Dojo",
         period: "Mar 2016 - Sep 2016"
       },
