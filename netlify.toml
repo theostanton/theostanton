@@ -1,6 +1,6 @@
 [build]
   command = "yarn build"
-  publish = "out"
+  publish = "site/out"
 
 [build.environment]
   NODE_VERSION = "22"
