@@ -1,6 +1,7 @@
 [build]
-  command = "yarn build"
-  publish = "out"
+  command = "cd site && yarn build"
+  publish = "site/out"
 
 [build.environment]
   NODE_VERSION = "22"
+  YARN_FLAGS = "--ignore-scripts"
