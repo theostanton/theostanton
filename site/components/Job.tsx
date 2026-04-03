@@ -1,6 +1,6 @@
 import React, {ReactElement} from "react"
 import styled from "styled-components"
-import {theme, Theme} from "../styles/theme"
+import {theme} from "../styles/theme"
 
 export type Props = {
     title: string
@@ -11,7 +11,7 @@ export type Props = {
     location: "left" | "right"
 }
 
-type LocationProps = Pick<Props, "location">
+type TransientLocationProps = { $location: "left" | "right" }
 
 const Container = styled.div`
   display: flex;
@@ -29,10 +29,10 @@ const Container = styled.div`
 `
 
 
-const TitleContainer = styled.div<LocationProps>`
+const TitleContainer = styled.div<TransientLocationProps>`
   display: flex;
   height: fit-content;
-  flex-direction: ${(props: LocationProps) => props.location === "left" ? "row" : "row-reverse"};
+  flex-direction: ${(props) => props.$location === "left" ? "row" : "row-reverse"};
 `
 
 const Title = styled.div`
@@ -79,11 +79,11 @@ const Period = styled.h3`
 `
 
 
-const Details = styled.div<LocationProps>`
+const Details = styled.div<TransientLocationProps>`
   display: flex;
   padding: 8px 0 0;
   flex-direction: column;
-  align-items: ${(props: LocationProps) => props.location === "left" ? "flex-start" : "flex-end"};
+  align-items: ${(props) => props.$location === "left" ? "flex-start" : "flex-end"};
 `
 
 function Company(props: Props): ReactElement {
@@ -103,10 +103,10 @@ function Company(props: Props): ReactElement {
 
 const JobComponent: React.FC<Props> = ((props: Props) => {
     return <Container>
-        <TitleContainer location={props.location}>
+        <TitleContainer $location={props.location}>
             <Title>{props.title}</Title>
         </TitleContainer>
-        <Details location={props.location}>
+        <Details $location={props.location}>
             <Company {...props} />
             {props.description && <Description>{props.description}</Description>}
             <Period>{props.period}</Period>
