@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<props> = async context => {
         period: "Oct 2016 - Mar 2018"
       },
       {
-        title: "Head of\nMobile",
+        title: "Head of Mobile",
         company: "Dojo",
         period: "Mar 2016 - Sep 2016"
       },
