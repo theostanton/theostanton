@@ -3,14 +3,14 @@
     "strict": false,
     "module": "CommonJS",
     "incremental": false,
-    "target": "ESNext",
+    "target": "ES2022",
     "noImplicitAny": true,
     "pretty": true,
     "sourceMap": true,
     "inlineSources": true,
     "allowSyntheticDefaultImports": true,
     "preserveConstEnums": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "declaration": true,
     "types": [
       "node"
@@ -21,8 +21,7 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "lib": [
-      "ES2020.Promise",
-      "es6",
+      "ES2022",
       "dom"
     ]
   }

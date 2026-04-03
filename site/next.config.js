@@ -1,5 +1,6 @@
+/** @type {import('next').NextConfig} */
 module.exports = {
-    webpack5: true,
+    output: 'export',
     env: {
         STATS_URL: process.env.STATS_URL
     }

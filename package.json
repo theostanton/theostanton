@@ -10,9 +10,9 @@
     "transpile": "yarn wsrun -sm transpile"
   },
   "devDependencies": {
-    "@types/node": "^22.10.5",
-    "@types/react": "^19.0.3",
-    "typescript": "^5.7.2",
+    "@types/node": "^25.5.1",
+    "@types/react": "^19.2.14",
+    "typescript": "^5.8.3",
     "wsrun": "^5.2.4"
   },
   "workspaces": [
