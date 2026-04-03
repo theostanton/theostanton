@@ -5,15 +5,17 @@
   "repository": "https://github.com/theostanton/theostanton.git",
   "author": "Theo <theo@theo.dev>",
   "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
-    "watch": "yarn transpile && yarn wsrun -am  --exclude @stats/lambda watch",
-    "transpile": "yarn wsrun -sm transpile"
+    "watch": "yarn transpile && yarn workspace @stats/model watch & yarn workspace @stats/database watch & yarn workspace @stats/notion watch & yarn workspace @stats/client watch & yarn workspace @stats/controllers watch",
+    "transpile": "yarn workspace @stats/model transpile && yarn workspace @stats/database transpile && yarn workspace @stats/notion transpile && yarn workspace @stats/client transpile && yarn workspace @stats/controllers transpile"
   },
   "devDependencies": {
     "@types/node": "^25.5.1",
     "@types/react": "^19.2.14",
-    "typescript": "^5.8.3",
-    "wsrun": "^5.2.4"
+    "typescript": "^5.8.3"
   },
   "workspaces": [
     "stats/*",
