@@ -66,10 +66,6 @@ export const getStaticProps: GetStaticProps<props> = async context => {
         url: "https://linkedin.com/in/theostanton"
       },
       {
-        title: "Instagram",
-        url: "https://instagram.com/theostanton"
-      },
-      {
         title: "Strava",
         url: "https://www.strava.com/athletes/theostanton"
       }
